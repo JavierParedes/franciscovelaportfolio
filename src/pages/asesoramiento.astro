@@ -1,0 +1,412 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, pageRoutes } from '../i18n/utils';
+
+const lang = 'es';
+const t = useTranslations(lang);
+const programs = t('coaching.programs') as any[];
+const steps = t('coaching.method_steps') as any[];
+
+// Selección de fotos de Cádiz CF y Llerenense intercaladas
+const cadizNums    = [5, 8, 12, 17, 22, 27, 32, 38, 44, 50, 56, 62];
+const llerenNums   = [3, 7, 11, 15, 20, 25, 30, 35, 40, 45, 50, 55];
+
+const coachingPhotos = cadizNums.flatMap((n, i) => [
+  { src: `/images/cadiz-cf/cadiz-${String(n).padStart(3,'0')}.jpg`,         alt: 'Francisco Vela - Cádiz CF' },
+  { src: `/images/llerenense/llerenense-${String(llerenNums[i]).padStart(3,'0')}.jpg`, alt: 'Francisco Vela - Llerenense' },
+]);
+---
+
+<BaseLayout
+  lang={lang}
+  currentPage="/asesoramiento"
+  title={t('coaching.meta_title') as string}
+  description={t('coaching.meta_description') as string}
+>
+  <!-- Hero -->
+  <section class="coach-hero">
+    <div class="coach-hero__bg">
+      <img src="/images/cadiz-cf/cadiz-015.jpg" alt="" aria-hidden="true" width="1400" height="700" loading="eager" class="coach-hero__img" />
+      <div class="coach-hero__overlay"></div>
+    </div>
+    <div class="container coach-hero__content">
+      <div class="coach-hero__text animate">
+        <span class="section-tagline">{t('coaching.tagline')}</span>
+        <h1 class="coach-hero__title">
+          {t('coaching.hero_title_1')}<br />
+          <span>{t('coaching.hero_title_2')}</span>
+        </h1>
+        <p class="coach-hero__text-body">{t('coaching.hero_text')}</p>
+        <a href={pageRoutes.contact[lang]} class="btn btn--primary">
+          Contactar
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodología -->
+  <section class="section coach-method">
+    <div class="container">
+      <h2 class="section-title animate">{t('coaching.method_title')}</h2>
+      <div class="divider animate animate--delay-1"></div>
+      <div class="coach-method__steps">
+        {steps.map((step: any, i: number) => (
+          <div class={`coach-method__step animate animate--delay-${i + 1}`}>
+            <div class="coach-method__step-num" aria-hidden="true">{step.number}</div>
+            {i < steps.length - 1 && (
+              <div class="coach-method__step-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+            )}
+            <div class="coach-method__step-content">
+              <h3 class="coach-method__step-title">{step.title}</h3>
+              <p class="coach-method__step-text">{step.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Programas -->
+  <section class="section coach-programs">
+    <div class="container">
+      <h2 class="section-title animate">{t('coaching.programs_title')}</h2>
+      <div class="divider animate animate--delay-1"></div>
+      <div class="coach-programs__grid">
+        {programs.map((prog: any, i: number) => (
+          <article class={`coach-program-card animate animate--delay-${i + 1}`}>
+            <div class="coach-program-card__icon" aria-hidden="true">
+              {prog.icon === 'sun' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="5"/>
+                  <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+              )}
+              {prog.icon === 'snow' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <line x1="12" y1="2" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="19.07" y2="4.93"/>
+                </svg>
+              )}
+              {prog.icon === 'calendar' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              )}
+              {prog.icon === 'target' && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              )}
+            </div>
+            <h3 class="coach-program-card__title">{prog.title}</h3>
+            <p class="coach-program-card__text">{prog.text}</p>
+            <a href={pageRoutes.contact[lang]} class="btn btn--ghost coach-program-card__cta">
+              Solicitar información
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Fotos -->
+  <section class="section coach-gallery">
+    <div class="container">
+      <div class="coach-gallery__grid">
+        {coachingPhotos.map((photo, i) => (
+          <div class={`coach-gallery__item animate animate--delay-${i + 1}`}>
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              width="500"
+              height="380"
+              loading="lazy"
+              class="coach-gallery__img"
+              onerror="this.closest('.coach-gallery__item').style.display='none'"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="section coach-cta">
+    <div class="container coach-cta__inner animate">
+      <h2 class="coach-cta__title">{t('coaching.cta_title')}</h2>
+      <p class="coach-cta__text">{t('coaching.cta_text')}</p>
+      <a href={pageRoutes.contact[lang]} class="btn btn--primary">
+        {t('coaching.cta_btn')}
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+/* Hero */
+.coach-hero {
+  position: relative;
+  min-height: 80svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.coach-hero__bg { position: absolute; inset: 0; }
+.coach-hero__img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.coach-hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.65) 60%, transparent 100%);
+}
+.coach-hero__content { position: relative; z-index: 1; padding-block: var(--space-20); }
+.coach-hero__text { max-width: 600px; }
+.coach-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: var(--space-6);
+}
+.coach-hero__title span { color: var(--lime); }
+.coach-hero__text-body {
+  font-size: var(--text-base);
+  color: var(--gray-300);
+  line-height: 1.8;
+  margin-bottom: var(--space-8);
+  max-width: 540px;
+}
+
+/* Methodology */
+.coach-method { background: var(--black-soft); }
+.coach-method__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+}
+
+.coach-method__step {
+  padding: var(--space-8) var(--space-6);
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-lg);
+  background: var(--black-card);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.coach-method__step::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--lime), rgba(163,230,53,0.2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.coach-method__step::after {
+  content: '';
+  position: absolute;
+  bottom: -50px; right: -50px;
+  width: 130px; height: 130px;
+  background: radial-gradient(circle, rgba(163,230,53,0.07) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.coach-method__step:hover::before { transform: scaleX(1); }
+.coach-method__step:hover::after { opacity: 1; }
+.coach-method__step:hover {
+  border-color: rgba(163,230,53,0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.4), 0 0 24px rgba(163,230,53,0.08);
+}
+
+.coach-method__step-num {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  border: 2px solid rgba(163,230,53,0.25);
+  background: rgba(163,230,53,0.04);
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  color: var(--lime);
+  line-height: 1;
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.coach-method__step:hover .coach-method__step-num {
+  border-color: var(--lime);
+  background: rgba(163,230,53,0.12);
+  box-shadow: 0 0 20px rgba(163,230,53,0.3), inset 0 0 12px rgba(163,230,53,0.08);
+}
+
+.coach-method__step-arrow { display: none; }
+
+.coach-method__step-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--white);
+  margin-bottom: var(--space-3);
+}
+.coach-method__step-text { font-size: var(--text-sm); color: var(--gray-500); line-height: 1.7; }
+
+/* Programs */
+.coach-programs__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-5);
+}
+
+.coach-program-card {
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.coach-program-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 16px; bottom: 16px;
+  width: 3px;
+  background: linear-gradient(180deg, var(--lime), rgba(163,230,53,0.2));
+  border-radius: 0 2px 2px 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s ease;
+}
+.coach-program-card::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; left: 50%;
+  transform: translateX(-50%);
+  width: 80%; height: 60px;
+  background: radial-gradient(ellipse, rgba(163,230,53,0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.coach-program-card:hover::before { transform: scaleY(1); }
+.coach-program-card:hover::after { opacity: 1; }
+.coach-program-card:hover {
+  border-color: rgba(163,230,53,0.35);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35), 0 0 20px rgba(163,230,53,0.06);
+}
+
+.coach-program-card__icon {
+  width: 56px; height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(163,230,53,0.06);
+  border: 1px solid rgba(163,230,53,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--lime);
+  margin-bottom: var(--space-5);
+  transition: all 0.3s ease;
+}
+.coach-program-card:hover .coach-program-card__icon {
+  background: rgba(163,230,53,0.12);
+  border-color: var(--lime);
+  box-shadow: 0 0 16px rgba(163,230,53,0.25);
+  transform: scale(1.05);
+}
+
+.coach-program-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: var(--space-3);
+}
+.coach-program-card__text {
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  line-height: 1.75;
+  flex: 1;
+  margin-bottom: var(--space-5);
+}
+.coach-program-card__cta { font-size: var(--text-sm); align-self: flex-start; }
+
+/* Gallery */
+.coach-gallery { background: var(--black-soft); overflow: hidden; }
+.coach-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: var(--space-3);
+}
+.coach-gallery__item:nth-child(4n+1) { grid-column: span 2; grid-row: span 2; }
+.coach-gallery__item {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--black-card);
+}
+.coach-gallery__img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+.coach-gallery__item:hover .coach-gallery__img { transform: scale(1.04); }
+
+/* CTA */
+.coach-cta {
+  background: var(--black-soft);
+  border-top: 1px solid var(--black-border);
+}
+.coach-cta__inner {
+  text-align: center;
+  max-width: 560px;
+  margin-inline: auto;
+}
+.coach-cta__title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--white);
+  margin-bottom: var(--space-4);
+}
+.coach-cta__text {
+  font-size: var(--text-base);
+  color: var(--gray-400);
+  margin-bottom: var(--space-8);
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .coach-method__steps { grid-template-columns: 1fr 1fr; }
+  .coach-gallery__grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 180px; }
+  .coach-gallery__item:nth-child(4n+1) { grid-column: span 2; grid-row: span 2; }
+}
+
+@media (max-width: 480px) {
+  .coach-method__steps { grid-template-columns: 1fr; }
+  .coach-gallery__grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 140px; }
+  .coach-gallery__item:nth-child(4n+1) { grid-column: span 2; grid-row: span 2; }
+  .coach-programs__grid { grid-template-columns: 1fr; }
+}
+</style>

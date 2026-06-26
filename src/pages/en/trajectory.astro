@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations, pageRoutes } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+const teams = t('teams') as any[];
+
+const galleryPhotos = [
+  ...Array.from({ length: 12 }, (_, i) => ({ src: `/images/cadiz-cf/cadiz-${String(i + 1).padStart(3, '0')}.jpg`, alt: `Francisco Vela at Cádiz CF - image ${i + 1}`, team: 'Cádiz CF' })),
+  ...Array.from({ length: 10 }, (_, i) => ({ src: `/images/llerenense/llerenense-${String(i + 1).padStart(3, '0')}.jpg`, alt: `Francisco Vela at AD Llerenense - image ${i + 1}`, team: 'AD Llerenense' })),
+  ...Array.from({ length: 6 }, (_, i) => ({ src: `/images/san-fernando/san-fernando-${String(i + 1).padStart(3, '0')}.jpg`, alt: `Francisco Vela at San Fernando CD - image ${i + 1}`, team: 'San Fernando CD' })),
+];
+---
+
+<BaseLayout lang={lang} currentPage="/en/trajectory" title={t('trajectory.meta_title') as string} description={t('trajectory.meta_description') as string}>
+  <section class="page-hero">
+    <div class="page-hero__bg">
+      <img src="/images/cadiz-cf/cadiz-001.jpg" alt="" aria-hidden="true" width="1400" height="500" loading="eager" class="page-hero__img" />
+      <div class="page-hero__overlay"></div>
+    </div>
+    <div class="container page-hero__content animate">
+      <span class="section-tagline">{t('trajectory.tagline')}</span>
+      <h1 class="page-hero__title">{t('trajectory.title_1')}<br /><span>{t('trajectory.title_2')}</span></h1>
+    </div>
+  </section>
+
+  <section class="section tray-bio">
+    <div class="container container--narrow">
+      <span class="section-tagline animate">{t('trajectory.bio_tagline')}</span>
+      <h2 class="section-title animate animate--delay-1">{t('trajectory.bio_title')}</h2>
+      <div class="divider animate animate--delay-1"></div>
+      <div class="tray-bio__text">
+        <p class="animate animate--delay-2">{t('trajectory.bio_text_1')}</p>
+        <p class="animate animate--delay-3">{t('trajectory.bio_text_2')}</p>
+        <p class="animate animate--delay-4">{t('trajectory.bio_text_3')}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tray-timeline">
+    <div class="container">
+      <h2 class="section-title animate">{t('trajectory.timeline_title')}</h2>
+      <div class="divider animate animate--delay-1"></div>
+      <div class="timeline">
+        {teams.map((team: any, i: number) => (
+          <div class={`timeline__item ${i % 2 === 0 ? 'timeline__item--left' : 'timeline__item--right'} animate`}>
+            <div class="timeline__dot"></div>
+            <div class="timeline__card">
+              <span class="timeline__years">{team.years}</span>
+              <div class="timeline__shield"><img src={team.shield} alt={`Shield ${team.name}`} width="140" height="140" loading="lazy" onerror="this.style.display='none'" /></div>
+              <h3 class="timeline__name">{team.name}</h3>
+              <p class="timeline__cat">{team.category}</p>
+              <div class="timeline__meta"><span class="timeline__meta-label">Manager:</span> <span class="timeline__meta-val">{team.coach}</span></div>
+              <span class="badge">{team.role}</span>
+            </div>
+          </div>
+        ))}
+        <div class="timeline__line" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tray-gallery">
+    <div class="container">
+      <h2 class="section-title animate">{t('trajectory.gallery_title')}</h2>
+      <div class="divider animate animate--delay-1"></div>
+      <div class="gallery__grid">
+        {galleryPhotos.map((photo, i) => (
+          <div class="gallery__item animate" style={`animation-delay: ${(i % 6) * 0.05}s`}>
+            <img src={photo.src} alt={photo.alt} width="400" height="300" loading="lazy" class="gallery__img" onerror="this.closest('.gallery__item').style.display='none'" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.page-hero { position: relative; min-height: 400px; display: flex; align-items: flex-end; overflow: hidden; }
+.page-hero__bg { position: absolute; inset: 0; }
+.page-hero__img { width: 100%; height: 100%; object-fit: cover; }
+.page-hero__overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(10,10,10,0.7) 100%); }
+.page-hero__content { position: relative; z-index: 1; padding-bottom: var(--space-12); }
+.page-hero__title { font-family: var(--font-display); font-size: var(--text-5xl); color: var(--white); line-height: 1; }
+.page-hero__title span { color: var(--lime); }
+.tray-bio__text { display: flex; flex-direction: column; gap: var(--space-5); }
+.tray-bio__text p { font-size: var(--text-base); color: var(--gray-300); line-height: 1.85; }
+.tray-timeline { background: var(--black-soft); }
+.timeline { position: relative; margin-top: var(--space-10); display: flex; flex-direction: column; gap: var(--space-8); }
+.timeline__line { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--lime), var(--black-border)); transform: translateX(-50%); }
+.timeline__item { display: flex; width: 50%; position: relative; }
+.timeline__item--left { align-self: flex-start; padding-right: var(--space-10); justify-content: flex-end; }
+.timeline__item--right { align-self: flex-end; padding-left: var(--space-10); margin-left: auto; }
+.timeline__dot { position: absolute; width: 14px; height: 14px; border-radius: var(--radius-full); background: var(--lime); border: 3px solid var(--black); box-shadow: 0 0 0 3px var(--lime-glow); top: 24px; }
+.timeline__item--left .timeline__dot { right: calc(-1 * var(--space-10) + var(--space-2)); }
+.timeline__item--right .timeline__dot { left: calc(-1 * var(--space-10) + var(--space-2)); }
+.timeline__card { background: var(--black-card); border: 1px solid var(--black-border); border-radius: var(--radius-lg); padding: var(--space-6); max-width: 360px; width: 100%; transition: border-color var(--transition-base); }
+.timeline__card:hover { border-color: var(--lime); }
+.timeline__years { display: block; font-family: var(--font-display); font-size: var(--text-xl); color: var(--lime); margin-bottom: var(--space-2); }
+.timeline__shield { margin-bottom: var(--space-3); }
+.timeline__shield img { width: 140px; height: 140px; object-fit: contain; }
+.timeline__name { font-family: var(--font-display); font-size: var(--text-xl); color: var(--white); margin-bottom: var(--space-1); }
+.timeline__cat { font-size: var(--text-sm); color: var(--gray-500); margin-bottom: var(--space-3); }
+.timeline__meta { font-size: var(--text-sm); color: var(--gray-400); margin-bottom: var(--space-3); }
+.timeline__meta-label { color: var(--gray-600); }
+.gallery__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-3); }
+.gallery__item { overflow: hidden; border-radius: var(--radius-md); aspect-ratio: 4/3; background: var(--black-card); }
+.gallery__img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
+.gallery__item:hover .gallery__img { transform: scale(1.05); }
+@media (max-width: 768px) {
+  .timeline__line { left: 20px; }
+  .timeline__item, .timeline__item--right { width: 100%; padding-left: var(--space-10); padding-right: 0; margin-left: 0; align-self: auto; justify-content: flex-start; }
+  .timeline__item--left .timeline__dot, .timeline__item--right .timeline__dot { left: 14px; right: auto; }
+  .timeline__card { max-width: 100%; }
+}
+</style>

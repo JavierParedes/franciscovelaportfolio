@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" fill="none">
+  <!-- Mapa del mundo minimalista decorativo para sección de trayectoria -->
+  <rect width="1000" height="500" fill="transparent"/>
+  <!-- Continentes simplificados -->
+  <!-- Europa/África -->
+  <path d="M480 80 L510 75 L530 85 L535 110 L525 130 L510 140 L505 160 L515 185 L520 210 L510 235 L500 260 L490 280 L495 300 L485 320 L475 340 L465 360 L460 380 L470 400 L475 420 L465 440 L450 450 L440 440 L435 420 L440 400 L445 380 L435 360 L425 340 L420 320 L415 300 L420 280 L415 260 L410 240 L415 220 L420 200 L425 180 L415 160 L405 145 L400 130 L405 110 L415 95 L430 85 L450 78 Z" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+  <!-- Asia -->
+  <path d="M540 60 L580 55 L630 60 L680 65 L720 75 L760 85 L780 100 L790 120 L800 140 L795 160 L785 175 L770 185 L755 195 L740 200 L725 210 L710 220 L700 235 L690 250 L680 260 L665 265 L650 260 L635 250 L620 240 L605 230 L590 220 L575 210 L560 200 L545 190 L535 175 L530 160 L535 145 L540 130 L535 115 L530 100 L535 85 L540 70 Z" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+  <!-- América del Norte -->
+  <path d="M100 60 L140 55 L180 60 L215 70 L240 90 L250 115 L245 140 L235 160 L225 180 L215 200 L210 220 L215 240 L220 260 L215 280 L200 290 L185 285 L170 275 L155 265 L140 255 L125 245 L115 230 L105 215 L95 200 L90 180 L95 160 L100 140 L95 120 L90 100 L95 80 L100 65 Z" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+  <!-- América del Sur -->
+  <path d="M185 300 L215 295 L240 305 L255 325 L260 350 L255 375 L245 395 L230 415 L215 430 L200 440 L185 445 L170 440 L158 430 L150 415 L145 395 L148 370 L155 345 L160 320 L170 305 Z" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+  <!-- Australia -->
+  <path d="M730 280 L770 275 L800 285 L815 305 L810 325 L795 340 L775 348 L755 345 L735 335 L720 315 L720 295 L730 283 Z" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+  <!-- Puntos de ciudades (trayectoria) -->
+  <circle cx="465" cy="200" r="4" fill="#A3E635" opacity="0.6"/><!-- España -->
+  <circle cx="475" cy="210" r="3" fill="#A3E635" opacity="0.5"/><!-- España -->
+  <!-- Líneas de conexión sutiles -->
+  <line x1="465" y1="200" x2="475" y2="210" stroke="#A3E635" stroke-width="1" opacity="0.2"/>
+</svg>

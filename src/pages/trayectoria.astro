@@ -1,0 +1,431 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations, pageRoutes } from '../i18n/utils';
+
+const lang = 'es';
+const t = useTranslations(lang);
+const teams = t('teams') as any[];
+
+// Fotos de galería por equipo
+const galleryPhotos = [
+  // Cádiz CF
+  ...Array.from({ length: 12 }, (_, i) => ({
+    src: `/images/cadiz-cf/cadiz-${String(i + 1).padStart(3, '0')}.jpg`,
+    alt: `Francisco Vela en Cádiz CF - imagen ${i + 1}`,
+    team: 'Cádiz CF'
+  })),
+  // Llerenense
+  ...Array.from({ length: 10 }, (_, i) => ({
+    src: `/images/llerenense/llerenense-${String(i + 1).padStart(3, '0')}.jpg`,
+    alt: `Francisco Vela en AD Llerenense - imagen ${i + 1}`,
+    team: 'AD Llerenense'
+  })),
+  // San Fernando
+  ...Array.from({ length: 6 }, (_, i) => ({
+    src: `/images/san-fernando/san-fernando-${String(i + 1).padStart(3, '0')}.jpg`,
+    alt: `Francisco Vela en San Fernando CD - imagen ${i + 1}`,
+    team: 'San Fernando CD'
+  })),
+];
+---
+
+<BaseLayout
+  lang={lang}
+  currentPage="/trayectoria"
+  title={t('trajectory.meta_title') as string}
+  description={t('trajectory.meta_description') as string}
+>
+  <!-- Hero de página -->
+  <section class="page-hero">
+    <div class="page-hero__bg">
+      <img src="/images/cadiz-cf/cadiz-001.jpg" alt="" aria-hidden="true" width="1400" height="500" loading="eager" class="page-hero__img" />
+      <div class="page-hero__overlay"></div>
+    </div>
+    <div class="container page-hero__content animate">
+      <span class="section-tagline">{t('trajectory.tagline')}</span>
+      <h1 class="page-hero__title">
+        {t('trajectory.title_1')}<br /><span>{t('trajectory.title_2')}</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Biografía extensa -->
+  <section class="section tray-bio">
+    <div class="container container--narrow">
+      <span class="section-tagline animate">{t('trajectory.bio_tagline')}</span>
+      <h2 class="section-title animate animate--delay-1">{t('trajectory.bio_title')}</h2>
+      <div class="divider animate animate--delay-1"></div>
+      <div class="tray-bio__text">
+        <p class="animate animate--delay-2">{t('trajectory.bio_text_1')}</p>
+        <p class="animate animate--delay-3">{t('trajectory.bio_text_2')}</p>
+        <p class="animate animate--delay-4">{t('trajectory.bio_text_3')}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section tray-timeline">
+    <div class="container">
+      <h2 class="section-title animate">{t('trajectory.timeline_title')}</h2>
+      <div class="divider animate animate--delay-1"></div>
+      <div class="timeline">
+        {teams.map((team: any, i: number) => (
+          <div class={`timeline__item ${i % 2 === 0 ? 'timeline__item--left' : 'timeline__item--right'} animate`}>
+            <div class="timeline__dot"></div>
+            <div class="timeline__card">
+              <span class="timeline__years">{team.years}</span>
+              <div class="timeline__shield">
+                <img src={team.shield} alt={`Escudo ${team.name}`} width="140" height="140" loading="lazy" onerror="this.style.display='none'" />
+              </div>
+              <h3 class="timeline__name">{team.name}</h3>
+              <p class="timeline__cat">{team.category}</p>
+              <div class="timeline__meta">
+                <span class="timeline__meta-label">Entrenador:</span>
+                <span class="timeline__meta-val">{team.coach}</span>
+              </div>
+              <span class="badge">{team.role}</span>
+            </div>
+          </div>
+        ))}
+        <div class="timeline__line" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería de fotos -->
+  <section class="section tray-gallery">
+    <div class="container">
+      <h2 class="section-title animate">{t('trajectory.gallery_title')}</h2>
+      <div class="divider animate animate--delay-1"></div>
+
+      <div
+        class="gallery"
+        x-data="{ lightbox: false, src: '', alt: '', idx: 0, photos: [] }"
+        x-init={`photos = ${JSON.stringify(galleryPhotos)}`}
+        @keydown.escape.window="lightbox = false"
+      >
+        <div class="gallery__grid">
+          {galleryPhotos.map((photo, i) => (
+            <button
+              class="gallery__item animate"
+              style={`animation-delay: ${(i % 6) * 0.05}s`}
+              @click={`lightbox = true; src = '${photo.src}'; alt = '${photo.alt}'; idx = ${i}`}
+              aria-label={photo.alt}
+            >
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                width="400"
+                height="300"
+                loading="lazy"
+                class="gallery__img"
+                onerror="this.closest('button').style.display='none'"
+              />
+              <div class="gallery__overlay" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+                </svg>
+              </div>
+              <span class="gallery__team">{photo.team}</span>
+            </button>
+          ))}
+        </div>
+
+        <!-- Lightbox -->
+        <div
+          class="lightbox"
+          x-show="lightbox"
+          x-transition:enter="lightbox-enter"
+          x-transition:enter-start="lightbox-enter-start"
+          x-transition:enter-end="lightbox-enter-end"
+          x-transition:leave="lightbox-leave"
+          x-transition:leave-start="lightbox-leave-start"
+          x-transition:leave-end="lightbox-leave-end"
+          @click.self="lightbox = false"
+          role="dialog"
+          aria-modal="true"
+          :aria-label="alt"
+        >
+          <button class="lightbox__close" @click="lightbox = false" aria-label="Cerrar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+          <button class="lightbox__nav lightbox__nav--prev"
+            @click="idx = (idx - 1 + photos.length) % photos.length; src = photos[idx].src; alt = photos[idx].alt"
+            aria-label="Anterior">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+          </button>
+          <img :src="src" :alt="alt" class="lightbox__img" width="1200" height="800" />
+          <button class="lightbox__nav lightbox__nav--next"
+            @click="idx = (idx + 1) % photos.length; src = photos[idx].src; alt = photos[idx].alt"
+            aria-label="Siguiente">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+          <p class="lightbox__caption" x-text="alt"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+/* Page hero */
+.page-hero {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero__bg { position: absolute; inset: 0; }
+.page-hero__img { width: 100%; height: 100%; object-fit: cover; }
+.page-hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,0.4) 100%);
+}
+.page-hero__content { position: relative; z-index: 1; padding-bottom: var(--space-12); }
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  color: var(--white);
+  line-height: 1;
+}
+.page-hero__title span { color: var(--lime); }
+
+/* Bio */
+.tray-bio__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.tray-bio__text p {
+  font-size: var(--text-base);
+  color: var(--gray-300);
+  line-height: 1.85;
+}
+
+/* Timeline */
+.tray-timeline { background: var(--black-soft); }
+
+.timeline {
+  position: relative;
+  margin-top: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.timeline__line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--lime), var(--black-border));
+  transform: translateX(-50%);
+}
+
+.timeline__item {
+  display: flex;
+  width: 50%;
+  position: relative;
+}
+.timeline__item--left { align-self: flex-start; padding-right: var(--space-10); justify-content: flex-end; }
+.timeline__item--right { align-self: flex-end; padding-left: var(--space-10); margin-left: auto; }
+
+.timeline__dot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  background: var(--lime);
+  border: 3px solid var(--black);
+  box-shadow: 0 0 0 3px var(--lime-glow);
+  top: 24px;
+}
+.timeline__item--left .timeline__dot { right: calc(-1 * var(--space-10) + var(--space-2)); }
+.timeline__item--right .timeline__dot { left: calc(-1 * var(--space-10) + var(--space-2)); }
+
+.timeline__card {
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: border-color var(--transition-base);
+  max-width: 360px;
+  width: 100%;
+}
+.timeline__card:hover { border-color: var(--lime); }
+
+.timeline__years {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--lime);
+  margin-bottom: var(--space-2);
+}
+.timeline__shield { margin-bottom: var(--space-3); }
+.timeline__shield img { width: 140px; height: 140px; object-fit: contain; }
+.timeline__name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--white);
+  margin-bottom: var(--space-1);
+}
+.timeline__cat { font-size: var(--text-sm); color: var(--gray-500); margin-bottom: var(--space-3); }
+.timeline__meta { font-size: var(--text-sm); color: var(--gray-400); margin-bottom: var(--space-3); }
+.timeline__meta-label { color: var(--gray-600); }
+
+/* Gallery */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-3);
+}
+
+.gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  background: var(--black-card);
+}
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+.gallery__item:hover .gallery__img { transform: scale(1.05); }
+
+.gallery__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(163, 230, 53, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  color: var(--white);
+}
+.gallery__item:hover .gallery__overlay { opacity: 1; }
+
+.gallery__team {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-2) var(--space-3);
+  background: linear-gradient(0deg, rgba(10,10,10,0.85), transparent);
+  font-size: var(--text-xs);
+  color: var(--gray-300);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+.gallery__item:hover .gallery__team { opacity: 1; }
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+.lightbox-enter { transition: opacity 0.25s ease; }
+.lightbox-enter-start, .lightbox-leave-end { opacity: 0; }
+.lightbox-enter-end, .lightbox-leave-start { opacity: 1; }
+.lightbox-leave { transition: opacity 0.25s ease; }
+
+.lightbox__img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-img);
+}
+.lightbox__close {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--black-soft);
+  border: 1px solid var(--black-border);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+.lightbox__close:hover { background: var(--lime); color: var(--black); }
+
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--black-soft);
+  border: 1px solid var(--black-border);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+.lightbox__nav:hover { background: var(--lime); color: var(--black); }
+.lightbox__nav--prev { left: var(--space-4); }
+.lightbox__nav--next { right: var(--space-4); }
+
+.lightbox__caption {
+  position: absolute;
+  bottom: var(--space-5);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  text-align: center;
+  max-width: 80%;
+}
+
+/* Responsive timeline */
+@media (max-width: 768px) {
+  .timeline__line { left: 20px; }
+  .timeline__item, .timeline__item--right {
+    width: 100%;
+    padding-left: var(--space-10);
+    padding-right: 0;
+    margin-left: 0;
+    align-self: auto;
+    justify-content: flex-start;
+  }
+  .timeline__item--left .timeline__dot,
+  .timeline__item--right .timeline__dot {
+    left: 14px;
+    right: auto;
+  }
+  .timeline__card { max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .gallery__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-2); }
+  .lightbox__nav { display: none; }
+}
+</style>

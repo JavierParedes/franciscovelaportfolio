@@ -1,0 +1,180 @@
+---
+import { useTranslations, pageRoutes } from '../../i18n/utils';
+import type { Lang } from '../../i18n/utils';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="bio section" id="bio">
+  <div class="container bio__inner">
+    <!-- Texto -->
+    <div class="bio__text">
+      <span class="section-tagline animate">{t('home.bio.tagline')}</span>
+      <h2 class="section-title bio__title animate animate--delay-1">
+        {t('home.bio.title_1')}<br />
+        <span>{t('home.bio.title_2')}</span>
+      </h2>
+      <div class="divider animate animate--delay-2"></div>
+      <p class="bio__body animate animate--delay-2">{t('home.bio.text')}</p>
+      <div class="bio__timeline animate animate--delay-3">
+        {(t('home.bio.timeline') as any[]).map((item: any) => (
+          <div class="bio__timeline-item">
+            <span class="bio__timeline-year">{item.year}</span>
+            <p class="bio__timeline-desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+      <a href={pageRoutes.trajectory[lang]} class="btn btn--ghost animate animate--delay-4">
+        {t('home.bio.cta')}
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Foto -->
+    <div class="bio__photo animate animate--right">
+      <div class="bio__photo-wrap">
+        <img
+          src="/images/bio/francisco-vela-bio.jpg"
+          alt="Francisco Vela preparador físico"
+          width="500"
+          height="650"
+          loading="lazy"
+          class="bio__img"
+        />
+        <!-- Badge decorativo -->
+        <div class="bio__badge">
+          <span class="bio__badge-icon">FV</span>
+          <span class="bio__badge-text">UEFA PRO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.bio__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(var(--space-10), 6vw, var(--space-20));
+  align-items: center;
+}
+
+/* Texto */
+.bio__title {
+  margin-bottom: 0;
+}
+
+.bio__body {
+  font-size: var(--text-base);
+  color: var(--gray-400);
+  line-height: 1.8;
+  margin-bottom: var(--space-8);
+}
+
+/* Timeline inline */
+.bio__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--black-border);
+}
+
+.bio__timeline-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+}
+
+.bio__timeline-year {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--lime);
+  flex-shrink: 0;
+  min-width: 3.5rem;
+  line-height: 1;
+}
+
+.bio__timeline-desc {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+}
+
+/* Foto */
+.bio__photo-wrap {
+  position: relative;
+}
+
+.bio__img {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  display: block;
+  box-shadow: var(--shadow-img);
+}
+
+/* Líneas decorativas */
+.bio__photo-wrap::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 60%;
+  height: 60%;
+  border: 2px solid var(--lime);
+  border-radius: var(--radius-lg);
+  z-index: -1;
+  opacity: 0.25;
+}
+
+/* Badge */
+.bio__badge {
+  position: absolute;
+  bottom: var(--space-5);
+  left: calc(-1 * var(--space-6));
+  background: var(--black-soft);
+  border: 1px solid var(--lime);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-lime);
+}
+
+.bio__badge-icon {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--lime);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.bio__badge-text {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bio__inner {
+    grid-template-columns: 1fr;
+  }
+  .bio__photo {
+    order: -1;
+  }
+  .bio__photo-wrap::before { display: none; }
+  .bio__badge { left: var(--space-4); bottom: var(--space-4); }
+}
+</style>

@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+const academic = t('academic') as any[];
+const teaching = t('teaching') as any[];
+const excludePhotos = new Set([1, 2, 4, 19, 20, 22, 26, 30]);
+const formacionPhotos = Array.from({ length: 30 }, (_, i) => i + 1)
+  .filter(n => !excludePhotos.has(n))
+  .map(i => ({ src: `/images/formacion/formacion-${String(i).padStart(3, '0')}.jpg`, alt: `Francisco Vela Education - image ${i}` }));
+---
+
+<BaseLayout lang={lang} currentPage="/en/education" title={t('education.meta_title') as string} description={t('education.meta_description') as string}>
+  <section class="page-hero">
+    <div class="page-hero__bg"><img src="/images/formacion/formacion-008.jpg" alt="" aria-hidden="true" width="1400" height="500" loading="eager" class="page-hero__img" /><div class="page-hero__overlay"></div></div>
+    <div class="container page-hero__content animate"><span class="section-tagline">{t('education.tagline')}</span><h1 class="page-hero__title">{t('education.title_1')}<br /><span>{t('education.title_2')}</span></h1></div>
+  </section>
+  <section class="section"><div class="container">
+    <h2 class="section-title animate">{t('education.academic_title')}</h2><div class="divider animate animate--delay-1"></div>
+    <div class="grid">{academic.map((item: any, i: number) => (<div class={`card animate animate--delay-${i+1}`}><div class="card__year-row"><span class="card__year">{item.year}</span><span class="badge">{item.type}</span></div><h3 class="card__title">{item.title}</h3><p class="card__sub">{Array.isArray(item.institution) ? item.institution.map((line: string, idx: number) => <>{idx > 0 && <br />}{line}</>) : item.institution}</p>{item.extra && <p class="card__extra">{item.extra}</p>}</div>))}</div>
+    <div class="cv-block animate"><h3>CURRICULUM VITAE</h3><div class="cv-btns"><a href="/cv-francisco-vela-es.pdf" target="_blank" rel="noopener" class="btn btn--primary">{t('education.cv_es')}</a><a href="/cv-francisco-vela-en.pdf" target="_blank" rel="noopener" class="btn btn--outline">{t('education.cv_en')}</a></div></div>
+  </div></section>
+  <section class="section bg-soft"><div class="container">
+    <h2 class="section-title animate">{t('education.teaching_title')}</h2><div class="divider animate animate--delay-1"></div>
+    <p class="intro animate animate--delay-2">{t('education.teaching_intro')}</p>
+    <div class="teaching-list">{teaching.map((item: any, i: number) => (<article class={`teaching-item animate animate--delay-${Math.min(i+1,5)}`}><span class="teaching-year">{item.year}</span><div><h3 class="teaching-event">{item.event}</h3><p class="teaching-inst">{item.institution}</p><p class="teaching-topic">"{item.topic}"</p></div></article>))}</div>
+  </div></section>
+  <section class="section"><div class="container">
+    <h2 class="section-title animate">{t('education.gallery_title')}</h2><div class="divider animate animate--delay-1"></div>
+    <div class="photo-grid">{formacionPhotos.map((p, i) => (<div class="photo-item animate" style={`animation-delay:${(i%5)*0.05}s`}><img src={p.src} alt={p.alt} width="400" height="300" loading="lazy" onerror="this.closest('.photo-item').style.display='none'" /></div>))}</div>
+  </div></section>
+</BaseLayout>
+
+<style>
+.page-hero { position:relative; min-height:400px; display:flex; align-items:flex-end; overflow:hidden; }
+.page-hero__bg { position:absolute; inset:0; }
+.page-hero__img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+.page-hero__overlay { position:absolute; inset:0; background:linear-gradient(0deg,rgba(10,10,10,1) 0%,rgba(10,10,10,.7) 100%); }
+.page-hero__content { position:relative; z-index:1; padding-bottom:var(--space-12); }
+.page-hero__title { font-family:var(--font-display); font-size:var(--text-5xl); color:var(--white); line-height:1; }
+.page-hero__title span { color:var(--lime); }
+.bg-soft { background:var(--black-soft); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:var(--space-5); margin-bottom:var(--space-12); }
+.card { background:var(--black-card); border:1px solid var(--black-border); border-radius:var(--radius-lg); padding:var(--space-8); transition:border-color var(--transition-base),transform var(--transition-base); }
+.card:hover { border-color:var(--lime); transform:translateY(-4px); }
+.card__year-row { display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-4); }
+.card__year { font-family:var(--font-display); font-size:var(--text-3xl); color:var(--lime); line-height:1; }
+.card__title { font-size:var(--text-lg); font-weight:700; color:var(--white); line-height:1.4; margin-bottom:var(--space-2); }
+.card__sub { font-size:var(--text-sm); color:var(--gray-500); }
+.inst-line { display:block; line-height:1.7; }
+.card__extra { font-size:var(--text-sm); color:var(--gray-400); border-top:1px solid var(--black-border); padding-top:var(--space-3); margin-top:var(--space-3); font-style:italic; }
+.cv-block { background:var(--black-card); border:1px solid var(--black-border); border-radius:var(--radius-lg); padding:var(--space-8); text-align:center; }
+.cv-block h3 { font-family:var(--font-display); font-size:var(--text-2xl); color:var(--white); margin-bottom:var(--space-6); }
+.cv-btns { display:flex; gap:var(--space-4); justify-content:center; flex-wrap:wrap; }
+.intro { font-size:var(--text-base); color:var(--gray-400); line-height:1.8; max-width:780px; margin-bottom:var(--space-10); }
+.teaching-list { display:flex; flex-direction:column; gap:var(--space-5); }
+.teaching-item { display:flex; gap:var(--space-8); padding:var(--space-6); background:var(--black-card); border:1px solid var(--black-border); border-radius:var(--radius-lg); transition:border-color var(--transition-base); }
+.teaching-item:hover { border-color:var(--lime); }
+.teaching-year { font-family:var(--font-display); font-size:var(--text-3xl); color:var(--lime); flex-shrink:0; min-width:4rem; line-height:1; }
+.teaching-event { font-size:var(--text-base); font-weight:700; color:var(--white); margin-bottom:var(--space-1); }
+.teaching-inst { font-size:var(--text-sm); color:var(--gray-500); margin-bottom:var(--space-2); }
+.teaching-topic { font-size:var(--text-sm); color:var(--gray-400); font-style:italic; }
+.photo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:var(--space-3); }
+.photo-item { overflow:hidden; border-radius:var(--radius-md); aspect-ratio:4/3; background:var(--black-card); }
+.photo-item img { width:100%; height:100%; object-fit:cover; transition:transform var(--transition-slow); }
+.photo-item:hover img { transform:scale(1.05); }
+@media (max-width:480px) { .teaching-item { flex-direction:column; gap:var(--space-3); } }
+</style>

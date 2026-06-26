@@ -1,0 +1,214 @@
+---
+import { useTranslations, pageRoutes } from '../../i18n/utils';
+import type { Lang } from '../../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <!-- Brand -->
+    <div class="footer__brand">
+      <a href={lang === 'es' ? '/' : '/en/'} class="footer__logo" aria-label="Francisco Vela PF">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 50" width="70" height="50" aria-hidden="true">
+          <text x="0" y="44" font-family="Arial Black, Arial" font-size="48" font-weight="900" fill="#FFFFFF" letter-spacing="-3">F</text>
+          <text x="28" y="44" font-family="Arial Black, Arial" font-size="48" font-weight="900" fill="#A3E635" letter-spacing="-3">V</text>
+        </svg>
+      </a>
+      <p class="footer__tagline">{t('footer.tagline')}</p>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/franciscovelapf" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+        <a href="https://x.com/willyvelapf" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Twitter / X">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <div class="footer__col">
+      <h3 class="footer__col-title">{t('footer.nav_title')}</h3>
+      <nav class="footer__nav">
+        <a href={pageRoutes.home[lang]} class="footer__nav-link">{t('nav.home')}</a>
+        <a href={pageRoutes.trajectory[lang]} class="footer__nav-link">{t('nav.trajectory')}</a>
+        <a href={pageRoutes.education[lang]} class="footer__nav-link">{t('nav.education')}</a>
+        <a href={pageRoutes.interviews[lang]} class="footer__nav-link">{t('nav.interviews')}</a>
+        <a href={pageRoutes.coaching[lang]} class="footer__nav-link">{t('nav.coaching')}</a>
+        <a href={pageRoutes.contact[lang]} class="footer__nav-link">{t('nav.contact')}</a>
+      </nav>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer__col">
+      <h3 class="footer__col-title">{t('footer.contact_title')}</h3>
+      <div class="footer__contact">
+        <a href={`mailto:${t('contact.info_email')}`} class="footer__contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          {t('contact.info_email')}
+        </a>
+        <a href="https://www.instagram.com/franciscovelapf" target="_blank" rel="noopener" class="footer__contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+          {t('contact.info_instagram')}
+        </a>
+        <a href="https://x.com/willyvelapf" target="_blank" rel="noopener" class="footer__contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          {t('contact.info_twitter')}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p class="footer__copy">
+        © {year} Francisco Vela PF. {t('footer.rights')}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  background-color: var(--black-soft);
+  border-top: 1px solid var(--black-border);
+  margin-top: auto;
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: var(--space-12);
+  padding-block: var(--space-16);
+}
+
+/* Brand */
+.footer__logo {
+  display: inline-block;
+  transition: opacity var(--transition-fast);
+}
+.footer__logo:hover { opacity: 0.8; }
+
+.footer__tagline {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-6);
+  max-width: 260px;
+  line-height: 1.6;
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-3);
+}
+.footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--black-border);
+  color: var(--gray-500);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+.footer__social-link:hover {
+  background: var(--lime-glow);
+  color: var(--lime);
+}
+
+/* Cols */
+.footer__col-title {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: var(--space-5);
+}
+
+/* Nav links */
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.footer__nav-link {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  transition: color var(--transition-fast);
+  padding-block: 0.15rem;
+}
+.footer__nav-link:hover { color: var(--lime); }
+
+/* Contact */
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.footer__contact-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  transition: color var(--transition-fast);
+}
+.footer__contact-link:hover { color: var(--lime); }
+
+/* Bottom */
+.footer__bottom {
+  border-top: 1px solid var(--black-border);
+  padding-block: var(--space-4);
+}
+.footer__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer__copy {
+  font-size: var(--text-xs);
+  color: var(--gray-600);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    padding-block: var(--space-12);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+</style>

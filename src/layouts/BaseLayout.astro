@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/global/Navigation.astro';
+import Footer from '../components/global/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  lang?: 'es' | 'en';
+  currentPage?: string;
+}
+
+const {
+  title,
+  description,
+  image = '/images/og-image.jpg',
+  lang: langProp,
+  currentPage = '/'
+} = Astro.props;
+
+const lang = langProp ?? getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const metaTitle = title ?? t('meta.title');
+const metaDesc = description ?? t('meta.description');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={metaDesc} />
+  <meta name="keywords" content={t('meta.keywords')} />
+  <meta name="robots" content="index, follow" />
+
+  <title>{metaTitle}</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={metaTitle} />
+  <meta property="og:description" content={metaDesc} />
+  <meta property="og:image" content={new URL(image, Astro.site)} />
+  <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={metaTitle} />
+  <meta name="twitter:description" content={metaDesc} />
+  <meta name="twitter:image" content={new URL(image, Astro.site)} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Preload fuentes críticas -->
+  <link rel="preload" href="/fonts/BebasNeue-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Francisco Javier Vela Terrero",
+      "jobTitle": "Preparador Físico de Fútbol",
+      "description": "Preparador Físico de Fútbol Profesional con más de 10 años de experiencia",
+      "email": "franciscovela.pf@gmail.com",
+      "sameAs": [
+        "https://www.instagram.com/franciscovelapf",
+        "https://www.tiktok.com/@franciscovelapf"
+      ]
+    }
+  </script>
+</head>
+<body>
+  <Navigation lang={lang} currentPage={currentPage} />
+  <main id="main-content">
+    <slot />
+  </main>
+  <Footer lang={lang} />
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Intersection Observer para animaciones -->
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.animate').forEach((el) => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

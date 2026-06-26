@@ -1,0 +1,375 @@
+---
+import { useTranslations, pageRoutes } from '../../i18n/utils';
+import type { Lang } from '../../i18n/utils';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const teams = t('teams') as any[];
+---
+
+<section class="teams section">
+  <!-- Mapa de fondo decorativo -->
+  <div class="teams__map-bg" aria-hidden="true"></div>
+
+  <div class="container teams__header animate">
+    <div>
+      <span class="section-tagline">{t('home.teams.tagline')}</span>
+      <h2 class="section-title">
+        {t('home.teams.title_1')}<br />
+        <span>{t('home.teams.title_2')}</span>
+      </h2>
+    </div>
+    <a href={pageRoutes.trajectory[lang]} class="btn btn--outline teams__cta-btn animate animate--right">
+      {t('home.teams.cta')}
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="12 5 19 12 12 19"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Scroll horizontal -->
+  <div class="teams__scroll-wrapper" x-data="{ scrollEl: null }" x-init="scrollEl = $refs.scroll">
+    <!-- Arrow izq -->
+    <button
+      class="teams__arrow teams__arrow--left"
+      @click="scrollEl.scrollBy({ left: -320, behavior: 'smooth' })"
+      aria-label="Anterior equipo"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <div class="teams__scroll" x-ref="scroll" role="list">
+      {teams.map((team: any, i: number) => (
+        <article class={`teams__card animate animate--delay-${Math.min(i + 1, 5)}`} role="listitem">
+          <div class="teams__card-shield">
+            <div class="teams__shield-ring">
+              <span class="teams__shield-corner-tr" aria-hidden="true"></span>
+              <span class="teams__shield-corner-bl" aria-hidden="true"></span>
+              <div class="teams__shield-scan" aria-hidden="true"></div>
+              <img
+                src={team.shield}
+                alt={`Escudo ${team.name}`}
+                width="100"
+                height="100"
+                loading="lazy"
+                class="teams__shield-img"
+                onerror="this.style.display='none'; this.closest('.teams__shield-ring').querySelector('.teams__card-shield-fallback').style.display='flex'"
+              />
+              <div class="teams__card-shield-fallback" style="display:none">
+                <span>{team.name.charAt(0)}</span>
+              </div>
+            </div>
+          </div>
+          <div class="teams__card-info">
+            <span class="teams__card-years">{team.years}</span>
+            <h3 class="teams__card-name">{team.name}</h3>
+            <p class="teams__card-cat">{team.category}</p>
+            <p class="teams__card-coach">
+              <span class="teams__card-label">{t('home.teams.coach_label')}:</span> {team.coach}
+            </p>
+            <span class="teams__card-role">{team.role}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Arrow der -->
+    <button
+      class="teams__arrow teams__arrow--right"
+      @click="scrollEl.scrollBy({ left: 320, behavior: 'smooth' })"
+      aria-label="Siguiente equipo"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<style>
+.teams {
+  background-color: var(--black-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Mapa decorativo */
+.teams__map-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/world-map.svg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.teams__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-10);
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+/* Scroll wrapper */
+.teams__scroll-wrapper {
+  position: relative;
+}
+
+.teams__scroll {
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: var(--space-2) clamp(1rem, 3vw, 2rem) var(--space-8);
+  -webkit-overflow-scrolling: touch;
+}
+.teams__scroll::-webkit-scrollbar { display: none; }
+
+/* Cards — 5 visibles en desktop */
+.teams__card {
+  flex: 1 1 0;
+  min-width: 220px;
+  scroll-snap-align: start;
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.teams__card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--lime);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--transition-slow);
+}
+
+.teams__card:hover {
+  border-color: var(--lime);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lime);
+}
+.teams__card:hover::before {
+  transform: scaleY(1);
+}
+
+/* Shield */
+.teams__card-shield {
+  width: 100%;
+  height: 210px;
+  margin-bottom: var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.teams__shield-ring {
+  position: relative;
+  width: 196px;
+  height: 196px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Spotlight radial que se intensifica al hover */
+  background: radial-gradient(circle at center, rgba(163,230,53,0.06) 0%, transparent 70%);
+  transition: background 0.4s ease;
+}
+
+/* Esquinas bracket — 4 esquinas en lima */
+.teams__shield-ring::before,
+.teams__shield-ring::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.teams__shield-ring::before {
+  top: 4px; left: 4px;
+  border-top: 2px solid var(--lime);
+  border-left: 2px solid var(--lime);
+}
+.teams__shield-ring::after {
+  bottom: 4px; right: 4px;
+  border-bottom: 2px solid var(--lime);
+  border-right: 2px solid var(--lime);
+}
+
+/* Necesitamos 2 spans para las otras 2 esquinas */
+.teams__shield-corner-tr,
+.teams__shield-corner-bl {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.teams__shield-corner-tr {
+  top: 4px; right: 4px;
+  border-top: 2px solid var(--lime);
+  border-right: 2px solid var(--lime);
+}
+.teams__shield-corner-bl {
+  bottom: 4px; left: 4px;
+  border-bottom: 2px solid var(--lime);
+  border-left: 2px solid var(--lime);
+}
+
+/* Scanline overlay */
+.teams__shield-scan {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(163,230,53,0.025) 3px,
+    rgba(163,230,53,0.025) 4px
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+.teams__shield-img {
+  position: relative;
+  z-index: 1;
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  transition: filter 0.4s ease;
+}
+
+/* Hover: brackets aparecen, spotlight se activa, scanlines visibles, glow en escudo */
+.teams__card:hover .teams__shield-ring {
+  background: radial-gradient(circle at center, rgba(163,230,53,0.14) 0%, rgba(163,230,53,0.04) 50%, transparent 75%);
+}
+.teams__card:hover .teams__shield-ring::before,
+.teams__card:hover .teams__shield-ring::after,
+.teams__card:hover .teams__shield-corner-tr,
+.teams__card:hover .teams__shield-corner-bl { opacity: 1; }
+
+.teams__card:hover .teams__shield-scan { opacity: 1; }
+
+.teams__card:hover .teams__shield-img {
+  filter: drop-shadow(0 0 8px rgba(163,230,53,0.35)) drop-shadow(0 2px 6px rgba(0,0,0,0.5)) brightness(1.08);
+}
+
+.teams__card-shield-fallback {
+  position: relative;
+  z-index: 1;
+  width: 160px;
+  height: 160px;
+  background: var(--lime-glow);
+  border-radius: var(--radius-md);
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--lime);
+}
+
+/* Info */
+.teams__card-years {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--lime);
+  margin-bottom: var(--space-1);
+}
+.teams__card-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: var(--space-2);
+}
+.teams__card-cat {
+  font-size: var(--text-xs);
+  color: var(--gray-500);
+  margin-bottom: var(--space-3);
+}
+.teams__card-coach {
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  margin-bottom: var(--space-3);
+}
+.teams__card-label {
+  color: var(--gray-600);
+  font-size: var(--text-xs);
+}
+.teams__card-role {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--lime);
+  background: var(--lime-glow);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+/* Arrows */
+.teams__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--black-soft);
+  border: 1px solid var(--black-border);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+.teams__arrow:hover {
+  background: var(--lime);
+  color: var(--black);
+  border-color: var(--lime);
+}
+.teams__arrow--left { left: 4px; }
+.teams__arrow--right { right: 4px; }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .teams__scroll {
+    flex-direction: column;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding-inline: clamp(1rem, 3vw, 2rem);
+  }
+  .teams__card {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+  }
+  .teams__arrow { display: none; }
+  .teams__cta-btn { display: none; }
+}
+</style>

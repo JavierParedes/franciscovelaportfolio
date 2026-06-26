@@ -1,0 +1,394 @@
+---
+import { useTranslations } from '../../i18n/utils';
+import type { Lang } from '../../i18n/utils';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const testimonials = t('testimonials') as any[];
+---
+
+<section class="testimonials section">
+  <div class="container">
+    <div class="testimonials__header animate">
+      <span class="section-tagline">{t('home.testimonials.tagline')}</span>
+      <h2 class="section-title">
+        {t('home.testimonials.title_1')}<br />
+        <span>{t('home.testimonials.title_2')}</span>
+      </h2>
+    </div>
+
+    <div
+      class="testimonials__carousel animate"
+      x-data="{
+        current: 0,
+        total: 0,
+        autoplay: null,
+        init() {
+          this.total = this.$refs.track.children.length;
+          this.startAutoplay();
+        },
+        next() {
+          this.current = (this.current + 1) % this.total;
+        },
+        prev() {
+          this.current = (this.current - 1 + this.total) % this.total;
+        },
+        goTo(i) { this.current = i; },
+        startAutoplay() {
+          this.autoplay = setInterval(() => this.next(), 6000);
+        },
+        stopAutoplay() {
+          clearInterval(this.autoplay);
+        }
+      }"
+      @mouseenter="stopAutoplay()"
+      @mouseleave="startAutoplay()"
+    >
+      <!-- Track -->
+      <div class="testimonials__track" x-ref="track">
+        {testimonials.map((tst: any, i: number) => (
+          <article
+            class="testimonials__slide"
+            :class={`current === ${i} ? 'is-active' : ''`}
+            aria-hidden={`${i !== 0}`}
+            :aria-hidden={`current !== ${i}`}
+          >
+            <div class="tc-card">
+              <!-- Opening quote -->
+              <span class="tc-card__open" aria-hidden="true">&#8220;</span>
+
+              <!-- Body -->
+              <blockquote class="tc-card__blockquote">
+                <p class="tc-card__text">{tst.text}</p>
+                <p class="tc-card__highlight">{tst.highlight}</p>
+              </blockquote>
+
+              <!-- Footer: author + closing quote -->
+              <div class="tc-card__footer">
+                <div class="tc-card__author">
+                  <div class="tc-card__avatar">
+                    {tst.photo ? (
+                      <>
+                        <img
+                          src={tst.photo}
+                          alt={tst.name}
+                          class="tc-card__avatar-photo"
+                          width="136"
+                          height="136"
+                          loading="lazy"
+                          style={`object-position: ${tst.photoPosition ?? 'top center'}`}
+                          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                        />
+                        <span class="tc-card__avatar-initial" style="display:none">{tst.name.charAt(0)}</span>
+                      </>
+                    ) : (
+                      <span class="tc-card__avatar-initial">{tst.name.charAt(0)}</span>
+                    )}
+                  </div>
+                  <div class="tc-card__meta">
+                    <strong class="tc-card__name">{tst.name}</strong>
+                    <span class="tc-card__role">{tst.role}{tst.team ? ` · ${tst.team}` : ''}</span>
+                    <div class="tc-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                  </div>
+                </div>
+                <span class="tc-card__close" aria-hidden="true">&#8221;</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Controls -->
+      <div class="testimonials__controls">
+        <button class="testimonials__arrow" @click="prev()" aria-label="Anterior testimonio">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        <div class="testimonials__dots">
+          {testimonials.map((_: any, i: number) => (
+            <button
+              class="testimonials__dot"
+              :class={`current === ${i} ? 'is-active' : ''`}
+              @click={`goTo(${i})`}
+              aria-label={`Ir al testimonio ${i + 1}`}
+            ></button>
+          ))}
+        </div>
+        <button class="testimonials__arrow" @click="next()" aria-label="Siguiente testimonio">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ── Section ── */
+.testimonials {
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(163, 230, 53, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.testimonials__header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+/* ── Carousel wrapper ── */
+.testimonials__carousel {
+  position: relative;
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.testimonials__track {
+  position: relative;
+  min-height: 360px;
+}
+
+.testimonials__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.testimonials__slide.is-active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  position: relative;
+}
+
+/* ── Card ── */
+.tc-card {
+  background: var(--black-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(163, 230, 53, 0.12);
+  border-left: 3px solid var(--lime);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-card), 0 0 0 0 transparent;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  transition: box-shadow var(--transition-base);
+}
+
+.tc-card:hover {
+  box-shadow: var(--shadow-card), 0 0 32px rgba(163, 230, 53, 0.08);
+}
+
+/* Opening quote mark */
+.tc-card__open {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 5.5rem;
+  line-height: 0.75;
+  color: var(--lime);
+  display: block;
+  opacity: 0.75;
+  user-select: none;
+}
+
+/* Quote body */
+.tc-card__blockquote {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.tc-card__text {
+  font-style: italic;
+  font-size: var(--text-base);
+  color: var(--gray-300);
+  line-height: 1.85;
+}
+
+.tc-card__highlight {
+  font-style: italic;
+  font-weight: 800;
+  font-size: var(--text-lg);
+  color: var(--lime);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* Footer: author + closing quote */
+.tc-card__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgba(163, 230, 53, 0.1);
+}
+
+.tc-card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.tc-card__avatar {
+  width: 136px;
+  height: 136px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 2px solid var(--lime);
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tc-card__avatar-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.tc-card__avatar-initial {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  color: var(--lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.tc-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.tc-card__name {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+.tc-card__role {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--lime);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.tc-card__stars {
+  font-size: var(--text-sm);
+  color: #fbbf24;
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* Closing quote mark */
+.tc-card__close {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 4rem;
+  line-height: 0.75;
+  color: var(--lime);
+  opacity: 0.5;
+  flex-shrink: 0;
+  align-self: flex-end;
+  user-select: none;
+}
+
+/* ── Controls ── */
+.testimonials__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.testimonials__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--black-border);
+  color: var(--gray-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.testimonials__arrow:hover {
+  border-color: var(--lime);
+  color: var(--lime);
+}
+
+.testimonials__dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.testimonials__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--black-border);
+  transition: all var(--transition-fast);
+}
+
+.testimonials__dot.is-active {
+  background: var(--lime);
+  width: 24px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .tc-card {
+    padding: var(--space-5) var(--space-5) var(--space-4);
+  }
+  .tc-card__open {
+    font-size: 4rem;
+  }
+  .tc-card__highlight {
+    font-size: var(--text-base);
+  }
+  .tc-card__close {
+    display: none;
+  }
+  .tc-card__avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 12px;
+  }
+  .tc-card__avatar-photo {
+    border-radius: 10px;
+  }
+  .tc-card__avatar-initial {
+    font-size: var(--text-3xl);
+  }
+  .testimonials__track {
+    min-height: 460px;
+  }
+}
+</style>

@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(powershell -Command ' *)",
+      "Bash(ls \"C:\\\\Users\\\\Javier\\\\Documents\\\\Proyectos\\\\FranciscoVela\" 2>/dev/null)",
+      "Read(//c/Users/Javier/Documents/Proyectos/FranciscoVela/**)",
+      "Bash(npm --version)",
+      "Bash(npm create *)",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 npm create astro@latest . -- --template minimal --install --no-git --typescript strict)",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 npm install)",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 npm install --progress false)",
+      "Bash(node -e \"const p = require\\('./node_modules/astro/package.json'\\); console.log\\(p.version\\)\")",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 npm audit fix --force)",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 npm install astro@^7.0.2 @astrojs/sitemap@^4.0.0 --save)",
+      "Bash(cp \"C:/Users/Javier/Documents/Proyectos/FranciscoVela/Documentacion/audios entrevistas/WhatsApp Audio 2026-06-25 at 12.28.56.mp4\" \"C:/Users/Javier/Documents/Proyectos/FranciscoVela/WEB/public/audio/entrevista-cope-1.mp4\")",
+      "Bash(cp \"C:/Users/Javier/Documents/Proyectos/FranciscoVela/Documentacion/audios entrevistas/WhatsApp Audio 2026-06-25 at 12.28.56-2.mp4\" \"C:/Users/Javier/Documents/Proyectos/FranciscoVela/WEB/public/audio/entrevista-cope-2.mp4\")",
+      "Bash(ffprobe -v quiet -show_entries format=duration -of csv=p=0 \"C:/Users/Javier/Documents/Proyectos/FranciscoVela/WEB/public/audio/entrevista-cope-1.mp4\")",
+      "Bash(tasklist /FI \"IMAGENAME eq node.exe\")",
+      "Bash(node -e \"const p=require\\('C:/Users/Javier/Documents/Proyectos/FranciscoVela/WEB/node_modules/astro/package.json'\\);console.log\\(p.version\\)\")",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 npm install astro@^7.0.2 @astrojs/sitemap@latest --save)",
+      "Bash(npm config *)",
+      "Bash(npm install *)"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+const lang = 'en';
+const t = useTranslations(lang);
+---
+<BaseLayout lang={lang} currentPage="/en/contact" title={t('contact.meta_title') as string} description={t('contact.meta_description') as string}>
+  <section class="contact-page section">
+    <div class="container contact-page__inner">
+      <div class="contact-info animate">
+        <span class="section-tagline">{t('contact.tagline')}</span>
+        <h1 class="contact-info__title">{t('contact.title_1')}<br /><span>TALK</span></h1>
+        <div class="divider"></div>
+        <p class="contact-info__subtitle">{t('contact.subtitle')}</p>
+        <div class="contact-info__items">
+          <a href={`mailto:${t('contact.info_email')}`} class="contact-info__item"><div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><span class="ci-label">Email</span><span class="ci-val">{t('contact.info_email')}</span></div></a>
+          <a href="https://www.instagram.com/franciscovelapf" target="_blank" rel="noopener" class="contact-info__item"><div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div><div><span class="ci-label">Instagram</span><span class="ci-val">{t('contact.info_instagram')}</span></div></a>
+        </div>
+      </div>
+      <div class="contact-form animate animate--right" x-data="{submitted:false,error:false,loading:false,async submit(e){this.loading=true;const d=new FormData(e.target);try{const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(d).toString()});if(r.ok){this.submitted=true;e.target.reset()}else{this.error=true}}catch{this.error=true}this.loading=false}}">
+        <div class="form-success" x-show="submitted" x-cloak><p>{t('contact.form_success')}</p></div>
+        <form name="contact-en" method="POST" data-netlify="true" netlify-honeypot="bot-field" @submit.prevent="submit($event)" x-show="!submitted" novalidate>
+          <input type="hidden" name="form-name" value="contact-en" />
+          <p class="sr-only"><label>Do not fill: <input name="bot-field" /></label></p>
+          <div class="form-row"><div class="form-field"><label class="form-label" for="name-en">{t('contact.form_name')} *</label><input type="text" id="name-en" name="name" class="form-input" required autocomplete="name" placeholder="Your full name" /></div><div class="form-field"><label class="form-label" for="email-en">{t('contact.form_email')} *</label><input type="email" id="email-en" name="email" class="form-input" required autocomplete="email" placeholder="your@email.com" /></div></div>
+          <div class="form-field"><label class="form-label" for="subject-en">{t('contact.form_subject')} *</label><input type="text" id="subject-en" name="subject" class="form-input" required placeholder="Reason for contact" /></div>
+          <div class="form-field"><label class="form-label" for="message-en">{t('contact.form_message')} *</label><textarea id="message-en" name="message" class="form-textarea" rows="5" required placeholder="Tell me how I can help you..."></textarea></div>
+          <div x-show="error" x-cloak class="form-error-msg">{t('contact.form_error')}</div>
+          <button type="submit" class="btn btn--primary form-submit" :disabled="loading"><span x-show="!loading">{t('contact.form_submit')}</span><span x-show="loading" x-cloak>Sending...</span></button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.contact-page{min-height:calc(100svh - var(--preheader-h) - var(--header-h));display:flex;align-items:center}.contact-page__inner{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(var(--space-10),6vw,var(--space-20));align-items:start;padding-block:var(--space-20)}.contact-info__title{font-family:var(--font-display);font-size:var(--text-5xl);color:var(--white);line-height:1;margin-bottom:var(--space-4)}.contact-info__title span{color:var(--lime)}.contact-info__subtitle{font-size:var(--text-base);color:var(--gray-400);line-height:1.75;margin-bottom:var(--space-10)}.contact-info__items{display:flex;flex-direction:column;gap:var(--space-4)}.contact-info__item{display:flex;align-items:center;gap:var(--space-4);padding:var(--space-4);border-radius:var(--radius-md);border:1px solid var(--black-border);transition:all var(--transition-fast)}.contact-info__item:hover{border-color:var(--lime);background:var(--lime-glow)}.ci-icon{width:44px;height:44px;border-radius:var(--radius-md);background:var(--lime-glow);border:1px solid var(--lime);display:flex;align-items:center;justify-content:center;color:var(--lime);flex-shrink:0}.ci-label{display:block;font-size:var(--text-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-600);margin-bottom:2px}.ci-val{display:block;font-size:var(--text-sm);color:var(--white);font-weight:500}.contact-form{background:var(--black-card);border:1px solid var(--black-border);border-radius:var(--radius-lg);padding:clamp(var(--space-6),4vw,var(--space-10))}.form-success{padding:var(--space-12) 0;text-align:center;color:var(--white)}.form-field{display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-5)}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)}.form-label{font-size:var(--text-xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-400)}.form-input,.form-textarea{background:var(--black);border:1.5px solid var(--black-border);border-radius:var(--radius-md);padding:.75rem 1rem;color:var(--white);font-size:var(--text-base);transition:border-color var(--transition-fast);width:100%}.form-input::placeholder,.form-textarea::placeholder{color:var(--gray-700)}.form-input:focus,.form-textarea:focus{border-color:var(--lime);box-shadow:0 0 0 3px var(--lime-glow);outline:none}.form-textarea{resize:vertical;min-height:120px}.form-error-msg{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);font-size:var(--text-sm);color:#FCA5A5;margin-bottom:var(--space-4)}.form-submit{margin-top:var(--space-2);padding:.875rem 2rem;font-size:var(--text-sm)}.form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none!important}[x-cloak]{display:none!important}
+@media(max-width:768px){.contact-page__inner{grid-template-columns:1fr;gap:var(--space-10)}.form-row{grid-template-columns:1fr}}
+</style>

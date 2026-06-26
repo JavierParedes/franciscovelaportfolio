@@ -1,0 +1,452 @@
+{
+  "lang": "en",
+  "meta": {
+    "title": "Francisco Vela | Professional Football Fitness Coach",
+    "description": "Francisco Javier Vela Terrero, Fitness Coach with over 10 years of experience in professional football. Degree in Physical Activity and Sports Science, Masters in Fitness Coaching and Injury Prevention, UEFA PRO.",
+    "keywords": "football fitness coach, Francisco Vela, fitness coach Spain, professional football, injury prevention, GPS football"
+  },
+  "preheader": {
+    "cv": "Resume",
+    "lang_es": "Español",
+    "lang_en": "English"
+  },
+  "nav": {
+    "home": "Home",
+    "trajectory": "Career",
+    "education": "Education",
+    "interviews": "Interviews",
+    "coaching": "Coaching",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Francisco Vela",
+      "headline_1": "I TRAIN PEOPLE,",
+      "headline_2": "NOT JUST PLAYERS",
+      "subtitle": "Performance optimization, injury prevention and development of each athlete's maximum potential.",
+      "cta": "Discover my work",
+      "scroll": "Scroll"
+    },
+    "stats": {
+      "years": "+10",
+      "years_label": "Years of experience",
+      "teams": "5+",
+      "teams_label": "Teams",
+      "players": "200+",
+      "players_label": "Players",
+      "commitment": "100%",
+      "commitment_label": "Commitment"
+    },
+    "bio": {
+      "tagline": "Biography",
+      "title_1": "PASSION FOR",
+      "title_2": "PERFORMANCE",
+      "text": "Francisco Javier Vela Terrero holds a Degree in Physical Activity and Sports Science, a Master's in Football Fitness Coaching, and a Master's in Injury Prevention and Readaptation, along with a UEFA PRO coaching licence. A professional football fitness coach for over a decade, he currently serves as fitness coach at Chiclana CF (Spain). His career is marked by solid national experience in professional football, having led the physical preparation of clubs including San Fernando CF, Cádiz CF and AD Llerenense.",
+      "cta": "Know my story",
+      "timeline": [
+        {"year": "2018", "desc": "Professional football debut — San Fernando CD"},
+        {"year": "2019", "desc": "Joining Cádiz CF"},
+        {"year": "2021", "desc": "Promoted to reserve team — Cádiz CF Balón"},
+        {"year": "2024", "desc": "New chapter — AD Llerenense"},
+        {"year": "2026", "desc": "Present — Chiclana CF"}
+      ]
+    },
+    "teams": {
+      "tagline": "Career",
+      "title_1": "TEAMS I HAVE",
+      "title_2": "WORKED WITH",
+      "cta": "View all teams",
+      "coach_label": "Manager"
+    },
+    "methodology": {
+      "tagline": "Methodology",
+      "title_1": "AN INTEGRAL",
+      "title_2": "APPROACH",
+      "text": "We work on every aspect that impacts performance to develop stronger, faster and more resilient athletes.",
+      "cta": "Explore approach",
+      "items": [
+        {
+          "icon": "chart",
+          "label": "Data analysis"
+        },
+        {
+          "icon": "weight",
+          "label": "Load control"
+        },
+        {
+          "icon": "shield",
+          "label": "Injury prevention"
+        },
+        {
+          "icon": "run",
+          "label": "Physical preparation"
+        },
+        {
+          "icon": "health",
+          "label": "Functional readaptation"
+        },
+        {
+          "icon": "apple",
+          "label": "Sports nutrition"
+        }
+      ]
+    },
+    "testimonials": {
+      "tagline": "Testimonials",
+      "title_1": "WHO HAS TRUSTED",
+      "title_2": "MY WORK"
+    },
+    "cta_banner": {
+      "title_1": "Ready to take your",
+      "title_2": "PERFORMANCE",
+      "title_3": "to the next level?",
+      "subtitle": "Let's talk about how I can help you or your team reach maximum potential.",
+      "cta": "Contact me"
+    }
+  },
+  "trajectory": {
+    "meta_title": "Career | Francisco Vela PF",
+    "meta_description": "Discover Francisco Vela's professional career as a fitness coach at San Fernando CD, Cádiz CF, AD Llerenense and Chiclana CF.",
+    "tagline": "Career",
+    "title_1": "MY PROFESSIONAL",
+    "title_2": "CAREER",
+    "bio_tagline": "Biography",
+    "bio_title": "ABOUT ME",
+    "bio_text_1": "Francisco Javier Vela Terrero (Cádiz, 18th June 1998). He holds a Degree in Physical Activity and Sports Science (2020). In 2021 he completed the Master's in Football Fitness Coaching and in 2022 the Master's in Injury Prevention and Readaptation in Football, both awarded by the University of Castilla La Mancha, the Association of Fitness Coaches and the Royal Madrid Football Federation. In 2025 he completed the Higher Level in Football Sports Coaching (UEFA PRO), as well as an Expert Course in Training Load Control and Quantification in Football, taught by Marcos Chena and Antonio Sánchez.",
+    "bio_text_2": "He began his professional career at San Fernando CD as fitness coach for the U19 team in the National League in 2018. After one season, he moved to Cádiz CF to lead the physical preparation of the U19 team, where he remained for two seasons. This work earned him promotion in July 2021 to the U23 reserve team in 1ª RFAF, where he spent 3 seasons working with coach Jesuli Velazquez, achieving 3 promotion playoffs and two consecutive promotions, the last to División de Honor Senior.",
+    "bio_text_3": "During 2022 and 2023 he also worked as a coach for LA LIGA's International Campus. In his final year at Cádiz CF he was assistant coach for the U19 International Academy under Pablo Sanchez. In June 2024 he joined coach Juan Garcia in Extremadura as fitness coach for AD Llerenense in Tercera RFEF, reaching the promotion playoff final for Segunda RFEF. In June 2026 he started a new chapter with coach Jose Manuel Perez Herrera at Chiclana CF in Tercera RFEF. In summary, Fran Vela has accumulated a decade of uninterrupted experience in professional football teams, distinguished by his ability to apply scientific knowledge in a sports context.",
+    "gallery_title": "PHOTO GALLERY",
+    "timeline_title": "TIMELINE"
+  },
+  "education": {
+    "meta_title": "Education | Francisco Vela PF",
+    "meta_description": "Francisco Vela's academic background and teaching experience: Degree in Physical Activity, Masters in Fitness Coaching and Injury Prevention, UEFA PRO.",
+    "tagline": "Education",
+    "title_1": "EDUCATION &",
+    "title_2": "CURRICULUM",
+    "academic_title": "ACADEMIC QUALIFICATIONS",
+    "teaching_title": "TEACHING EXPERIENCE",
+    "teaching_intro": "Fran Vela has over 5 years of teaching experience. He is a regular collaborator in Masters and Expert Courses on Football Fitness Coaching at national and international level. Fran also frequently participates as a speaker at international courses and congresses, both in person and online (Spanish and English).",
+    "institutions_title": "PARTNER INSTITUTIONS",
+    "gallery_title": "GALLERY",
+    "cv_title": "CURRICULUM VITAE",
+    "cv_es": "Download CV (Spanish)",
+    "cv_en": "Download CV (English)"
+  },
+  "interviews": {
+    "meta_title": "Interviews | Francisco Vela PF",
+    "meta_description": "Media interviews and appearances by Francisco Vela, professional football fitness coach.",
+    "tagline": "Interviews",
+    "title_1": "IN THE",
+    "title_2": "MEDIA",
+    "videos_title": "VIDEOS",
+    "audio_title": "RADIO",
+    "written_title": "PRESS"
+  },
+  "coaching": {
+    "meta_title": "Coaching | Francisco Vela PF",
+    "meta_description": "Personalised training programme with Francisco Vela. Evidence-based methodology for amateur, semi-professional and professional footballers.",
+    "tagline": "Coaching",
+    "hero_title_1": "TRAIN",
+    "hero_title_2": "WITH ME",
+    "hero_text": "Maintaining a high level of physical fitness and reducing the risk of injury are key aspects of achieving optimal sports performance throughout the season. If you are looking to optimise your physical condition, Fran can offer you tools adapted to your needs and work contexts, backed by his 10 years of experience as a professional football fitness coach and his ongoing training in sports performance.",
+    "method_title": "METHODOLOGY",
+    "method_steps": [
+      {
+        "number": "01",
+        "title": "ASSESS",
+        "text": "Designing sessions without a prior assessment is one of the most common mistakes. We will assess your physical condition to identify areas for improvement and potential deficits."
+      },
+      {
+        "number": "02",
+        "title": "PLAN",
+        "text": "Prescribe individually and precisely to maximise adaptations and minimise risks."
+      },
+      {
+        "number": "03",
+        "title": "MONITOR",
+        "text": "Quantify and control training load to detect fatigue and optimise performance."
+      },
+      {
+        "number": "04",
+        "title": "DECIDE",
+        "text": "Real feedback, daily tracking with the player in real time."
+      }
+    ],
+    "programs_title": "TRAINING PROGRAMMES",
+    "programs": [
+      {
+        "id": "summer",
+        "icon": "sun",
+        "title": "Transitional Period (Summer)",
+        "text": "Face your pre-season with a solid fitness base to train safely, recover better between demanding matches and reach optimal intensity in pre-season games."
+      },
+      {
+        "id": "winter",
+        "icon": "snow",
+        "title": "Transitional Period (Winter)",
+        "text": "Maintaining fitness levels during the Christmas break is key to not losing physiological adaptations ahead of the second half of the season."
+      },
+      {
+        "id": "season",
+        "icon": "calendar",
+        "title": "During the Season",
+        "text": "Complementary training adapted to your material resources, designed based on your individual characteristics and records. It complements your professional team's daily routines."
+      },
+      {
+        "id": "project",
+        "icon": "target",
+        "title": "New Sports Project",
+        "text": "Get ready for when the time comes to join a new project. Build a robust physical condition; the programme adapts to the needs, resources and objectives of the athlete."
+      }
+    ],
+    "cta_title": "Want to know more?",
+    "cta_text": "If you want to know more about the training programme in detail, contact me.",
+    "cta_btn": "Contact"
+  },
+  "contact": {
+    "meta_title": "Contact | Francisco Vela PF",
+    "meta_description": "Contact Francisco Vela, professional football fitness coach.",
+    "tagline": "Contact",
+    "title_1": "LET'S",
+    "title_2": "TALK",
+    "subtitle": "If you want to improve your team's performance or need more information, I am here to help you.",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_subject": "Subject",
+    "form_message": "Message",
+    "form_submit": "Send message",
+    "form_success": "Message sent! I will get back to you soon.",
+    "form_error": "There was an error. Please try again.",
+    "info_email": "franciscovela.pf@gmail.com",
+    "info_instagram": "@franciscovelapf",
+    "info_twitter": "@willyvelapf"
+  },
+  "footer": {
+    "tagline": "Professional Football Fitness Coach",
+    "nav_title": "Navigation",
+    "contact_title": "Contact",
+    "rights": "All rights reserved."
+  },
+  "teams": [
+    {
+      "id": "chiclana",
+      "years": "2026 - Present",
+      "name": "Chiclana CF",
+      "category": "3rd Division RFEF - Group 10",
+      "coach": "Jose Manuel Perez Herrera",
+      "role": "Fitness Coach",
+      "shield": "/images/escudos/chiclana-cf.png"
+    },
+    {
+      "id": "llerenense",
+      "years": "2024 - 2026",
+      "name": "AD Llerenense",
+      "category": "3rd Division RFEF - Group 14",
+      "coach": "Juan Garcia",
+      "role": "Fitness Coach & Technical Assistant",
+      "shield": "/images/escudos/llerenense.png"
+    },
+    {
+      "id": "cadiz-balon",
+      "years": "2021 - 2024",
+      "name": "Cádiz CF Balón",
+      "category": "1ª RFAF (U23)",
+      "coach": "Jesuli Velazquez",
+      "role": "Fitness Coach",
+      "shield": "/images/escudos/cadiz-cf.png"
+    },
+    {
+      "id": "cadiz-sub19",
+      "years": "2019 - 2021",
+      "name": "Cádiz CF",
+      "category": "National Youth League (U19)",
+      "coach": "Juanma Hoyos",
+      "role": "Fitness Coach",
+      "shield": "/images/escudos/cadiz-cf.png"
+    },
+    {
+      "id": "san-fernando",
+      "years": "2018 - 2019",
+      "name": "San Fernando CD",
+      "category": "National Youth League (U19)",
+      "coach": "Miguel Ángel Sanchez",
+      "role": "Fitness Coach & Injury Readaptation",
+      "shield": "/images/escudos/san-fernando.png"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "juan-garcia",
+      "name": "Juan Garcia",
+      "role": "Manager",
+      "team": "AD Llerenense",
+      "text": "Francisco Javier Vela Terrero is a fitness coach I trust completely and an excellent person. During three seasons we had the opportunity to grow professionally together, sharing experiences, learning and a shared vision of work.",
+      "highlight": "He has a thorough command of physical load planning and control, contributing significantly to injury prevention and player performance.",
+      "photo": "/images/testimonios/juan-garcia.jpg"
+    },
+    {
+      "id": "jesuli-velazquez",
+      "name": "Jesuli Velazquez",
+      "role": "Manager",
+      "team": "Cádiz CF Balón",
+      "text": "Francisco Vela is a fitness coach who stands out for his enormous capacity for work, commitment and daily dedication. He is a true hard worker, always willing to keep learning and give his best.",
+      "highlight": "His professionalism, seriousness and human quality make him a person who can be fully trusted.",
+      "photo": "/images/testimonios/jesuli-velazquez.jpg"
+    },
+    {
+      "id": "perez-herrera",
+      "name": "Jose Manuel Perez Herrera",
+      "role": "Manager",
+      "team": "Chiclana CF",
+      "text": "A committed professional, rigorous in his methodology and with excellent adaptability.",
+      "highlight": "His contribution to the coaching staff is fundamental to the team's performance.",
+      "photo": "/images/testimonios/perez-herrera.jpg"
+    },
+    {
+      "id": "pablo-grande",
+      "name": "Pablo Grande",
+      "role": "Manager",
+      "team": "Cádiz CF International Academy",
+      "text": "I had the opportunity to work with Fran at the Cádiz CF International Academy.",
+      "highlight": "His level of preparation and willingness to work as a team are exceptional.",
+      "photo": "/images/testimonios/pablo-grande-final.png",
+      "photoPosition": "center center"
+    },
+    {
+      "id": "marcos-chena",
+      "name": "Marcos Chena",
+      "role": "Fitness Coach",
+      "team": "Academic collaborator",
+      "text": "Fran is a professional with a solid scientific background and very refined practical application.",
+      "highlight": "His mastery of load quantification and GPS technology places him among the best fitness coaches of his generation.",
+      "photo": "/images/testimonios/marcos-chena.jpg"
+    },
+    {
+      "id": "sergio-dorado",
+      "name": "Sergio Dorado",
+      "role": "Fitness Coach",
+      "team": "",
+      "text": "A colleague with whom I have had the pleasure of sharing experiences.",
+      "highlight": "His knowledge, rigour and passion for fitness coaching are a benchmark in the sector.",
+      "photo": "/images/testimonios/sergio-dorado.jpg"
+    },
+    {
+      "id": "dani-romera",
+      "name": "Dani Romera",
+      "role": "Player",
+      "team": "",
+      "text": "Working with Fran has been key to my development as a footballer.",
+      "highlight": "His individual follow-up and the way he adapts training to my needs makes all the difference.",
+      "photo": "/images/testimonios/dani-romera-final.png",
+      "photoPosition": "center center"
+    }
+  ],
+  "academic": [
+    {
+      "year": "2025",
+      "title": "Sports Coach in Football (UEFA PRO)",
+      "institution": "Spanish Football Federation",
+      "type": "Higher Level",
+      "extra": "Expert Course in Training Load Control and Quantification in Football — Marcos Chena and Antonio Sánchez"
+    },
+    {
+      "year": "2022",
+      "title": "Master's in Injury Prevention and Readaptation in Football",
+      "institution": [
+        "Universidad de Castilla La Mancha",
+        "Asociación de Preparadores Físicos de Fútbol",
+        "Real Federación de Madrid"
+      ],
+      "type": "Master's Degree"
+    },
+    {
+      "year": "2021",
+      "title": "Master's in Football Fitness Coaching",
+      "institution": [
+        "Universidad de Castilla La Mancha",
+        "Asociación de Preparadores Físicos de Fútbol",
+        "Real Federación de Madrid"
+      ],
+      "type": "Master's Degree"
+    },
+    {
+      "year": "2020",
+      "title": "Degree in Physical Activity and Sports Science",
+      "institution": "University of Cádiz",
+      "type": "Degree"
+    }
+  ],
+  "teaching": [
+    {
+      "year": "2024",
+      "event": "IV International Contemporary Football Seminar",
+      "institution": "Universidad San Buenaventura Cali (Colombia)",
+      "topic": "The role of the football fitness coach within a professional staff"
+    },
+    {
+      "year": "2024",
+      "event": "Sports Coach in Football Courses (Level 1 and 2)",
+      "institution": "Extremadura Football Federation",
+      "topic": "Physical Preparation and Sports Safety"
+    },
+    {
+      "year": "2022",
+      "event": "International Conference",
+      "institution": "Colombian Football Fitness Coaches Association (APREFUCO)",
+      "topic": "Planning the competitive microcycle in professional football — a proposal based on science and professional experience"
+    },
+    {
+      "year": "2021",
+      "event": "Expert Master's in Methodology, Planning and Tactical Periodisation in Football",
+      "institution": "Florida Global University (USA)",
+      "topic": "Programme lecturer"
+    }
+  ],
+  "interviews_data": {
+    "videos": [
+      {
+        "id": "cadiz-tv",
+        "title": "Cádiz CF TV Interview",
+        "description": "Interview with Javier Ibáñez for the official Cádiz CF channel.",
+        "youtube_id": "ROpQ-LxVi6Q",
+        "thumbnail": ""
+      },
+      {
+        "id": "post-ascenso",
+        "title": "Post-Promotion Cádiz CF",
+        "description": "Statements after the historic promotion of the reserve team to División de Honor Senior.",
+        "youtube_id": "kCWuB055rXU",
+        "thumbnail": ""
+      }
+    ],
+    "audios": [
+      {
+        "id": "cope-1",
+        "title": "COPE Llerena Interview",
+        "subtitle": "Cadena COPE — Llerena, Badajoz",
+        "description": "Interview about the season at AD Llerenense.",
+        "file": "/audio/entrevista-cope-1.mp4",
+        "duration": ""
+      },
+      {
+        "id": "cope-2",
+        "title": "COPE Llerena Interview (2)",
+        "subtitle": "Cadena COPE — Llerena, Badajoz",
+        "description": "Second interview on Cadena COPE.",
+        "file": "/audio/entrevista-cope-2.mp4",
+        "duration": ""
+      }
+    ],
+    "written": [
+      {
+        "id": "futbol-verdadero",
+        "title": "\"In youth football, the integral development of the player is essential\"",
+        "media": "El Fútbol Verdadero",
+        "interviewer": "Xavier",
+        "url": "https://www.elfutbolverdadero.com/entrevistas-francisco-vela-en-el-futbol-base-es-fundamental-el-desarrollo-integral-del-jugador/",
+        "description": "In-depth interview on physical preparation in youth football and the importance of the player's integral development."
+      }
+    ]
+  }
+}

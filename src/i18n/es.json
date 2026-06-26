@@ -1,0 +1,452 @@
+{
+  "lang": "es",
+  "meta": {
+    "title": "Francisco Vela | Preparador Físico de Fútbol Profesional",
+    "description": "Francisco Javier Vela Terrero, Preparador Físico con más de 10 años de experiencia en el fútbol profesional. Graduado en CAFD, Máster en PF y Prevención de Lesiones, UEFA PRO.",
+    "keywords": "preparador físico fútbol, Francisco Vela, preparador físico Cádiz, fútbol profesional, prevencion lesiones, GPS fútbol"
+  },
+  "preheader": {
+    "cv": "Currículum",
+    "lang_es": "Español",
+    "lang_en": "English"
+  },
+  "nav": {
+    "home": "Inicio",
+    "trajectory": "Trayectoria",
+    "education": "Formación",
+    "interviews": "Entrevistas",
+    "coaching": "Asesoramiento",
+    "contact": "Contacto"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Francisco Vela",
+      "headline_1": "PREPARO PERSONAS,",
+      "headline_2": "NO SOLO JUGADORES",
+      "subtitle": "Optimización del rendimiento, prevención de lesiones y desarrollo del máximo potencial de cada atleta.",
+      "cta": "Conoce mi trabajo",
+      "scroll": "Scroll"
+    },
+    "stats": {
+      "years": "+10",
+      "years_label": "Años de experiencia",
+      "teams": "5+",
+      "teams_label": "Equipos",
+      "players": "200+",
+      "players_label": "Jugadores",
+      "commitment": "100%",
+      "commitment_label": "Compromiso"
+    },
+    "bio": {
+      "tagline": "Biografía",
+      "title_1": "PASIÓN POR EL",
+      "title_2": "RENDIMIENTO",
+      "text": "Francisco Javier Vela Terrero es Graduado en Ciencias de la Actividad Física y el Deporte, Máster en Preparación Física en Fútbol, Máster en Prevención y Readaptación de Lesiones, teniendo además la Licencia de entrenador UEFA PRO, preparador Físico de Fútbol profesional desde hace una década. Actualmente desempeña la función de preparador físico en el Chiclana CF (España). Su trayectoria destaca por su sólida experiencia nacional en el fútbol profesional, habiendo trabajado como líder de la preparación física en clubes como San Fernando CF, Cádiz CF, AD Llerenense.",
+      "cta": "Conoce mi historia",
+      "timeline": [
+        {"year": "2018", "desc": "Inicio en el fútbol profesional — San Fernando CD"},
+        {"year": "2019", "desc": "Incorporación al Cádiz CF"},
+        {"year": "2021", "desc": "Ascenso al equipo reserva — Cádiz CF Balón"},
+        {"year": "2024", "desc": "Nueva aventura — AD Llerenense"},
+        {"year": "2026", "desc": "Actualidad — Chiclana CF"}
+      ]
+    },
+    "teams": {
+      "tagline": "Trayectoria",
+      "title_1": "EQUIPOS EN LOS",
+      "title_2": "QUE HE TRABAJADO",
+      "cta": "Ver todos los equipos",
+      "coach_label": "Entrenador"
+    },
+    "methodology": {
+      "tagline": "Metodología",
+      "title_1": "UN ENFOQUE",
+      "title_2": "INTEGRAL",
+      "text": "Trabajamos cada aspecto que impacta en el rendimiento para lograr atletas más fuertes, rápidos y resilientes.",
+      "cta": "Explorar enfoque",
+      "items": [
+        {
+          "icon": "chart",
+          "label": "Análisis de datos"
+        },
+        {
+          "icon": "weight",
+          "label": "Control de cargas"
+        },
+        {
+          "icon": "shield",
+          "label": "Prevención de lesiones"
+        },
+        {
+          "icon": "run",
+          "label": "Preparación física"
+        },
+        {
+          "icon": "health",
+          "label": "Readaptación funcional"
+        },
+        {
+          "icon": "apple",
+          "label": "Nutrición deportiva"
+        }
+      ]
+    },
+    "testimonials": {
+      "tagline": "Testimonios",
+      "title_1": "QUIÉN HA CONFIADO",
+      "title_2": "EN MI TRABAJO"
+    },
+    "cta_banner": {
+      "title_1": "¿Listo para llevar tu",
+      "title_2": "RENDIMIENTO",
+      "title_3": "al siguiente nivel?",
+      "subtitle": "Hablemos de cómo puedo ayudarte a ti o a tu equipo a alcanzar su máximo potencial.",
+      "cta": "Contáctame"
+    }
+  },
+  "trajectory": {
+    "meta_title": "Trayectoria | Francisco Vela PF",
+    "meta_description": "Conoce la trayectoria profesional de Francisco Vela, preparador físico con experiencia en San Fernando CD, Cádiz CF, AD Llerenense y Chiclana CF.",
+    "tagline": "Trayectoria",
+    "title_1": "MI CARRERA",
+    "title_2": "PROFESIONAL",
+    "bio_tagline": "Biografía",
+    "bio_title": "SOBRE MÍ",
+    "bio_text_1": "Francisco Javier Vela Terrero (Cádiz, 18 de junio de 1998). Es Graduado en Ciencias de la Actividad Física y el Deporte (2020). En el año 2021 realizó el Máster en Preparación Física en Fútbol y en el año 2022 realizó el Master en Prevención y Readaptación de Lesiones en Fútbol, ambos impartidos por la Universidad de Castilla la Mancha, Asociación de Preparadores Físicos y la Real Federacion de Fútbol de Madrid. En el año 2025 realizó el grado superior de Técnico Deportivo en Fútbol (UEFA PRO), además de un Curso Experto en Control y Cuantificación de la Carga de entrenamiento en Fútbol, impartido por Marcos Chena y Antonio Sánchez.",
+    "bio_text_2": "Empezó su trayectoria profesional en el San Fernando CD como preparador físico en el equipo sub 19 en Liga Nacional en el año 2018. Tras una temporada en la entidad, pone rumbo al Cádiz CF, para dirigir la preparación física del equipo sub 19 en Liga Nacional, donde permaneció dos temporadas. Este trabajo le sirvió para promocionar en julio de 2021 al equipo reserva sub 23 en 1ª RFAF, donde permaneció 3 temporadas, trabajando con el entrenador Jesuli Velazquez, durante este tiempo consiguió 3 Playoffs de ascenso y dos ascensos consecutivos, el último a División de Honor Senior.",
+    "bio_text_3": "Durante los años 2022 y 2023 compaginó su labor en el Cádiz, siendo entrenador de los Campus Internacionales de LA LIGA. Además, durante su último año en el Cádiz CF estuvo trabajando con la Academia Internacional sub 19 como segundo entrenador del staff de Pablo Sanchez. En junio de 2024, comienza a trabajar con el entrenador Juan Garcia, empezando una nueva aventura en tierras extremeñas, como preparador físico del AD Llerenense en Tercera RFEF donde permaneció dos temporadas, llegando a disputar el Playoff de ascenso a Segunda RFEF llegando hasta la final nacional (3ª eliminatoria). En junio de 2026, inicia una nueva etapa con el entrenador Jose Manuel Perez Herrera en Andalucía, como preparador físico en el Chiclana CF en Tercera RFEF. En resumen, Fran Vela acumula una década de experiencia ininterrumpida en equipos de fútbol profesional, destacando por su capacidad adaptativa para aplicar el conocimiento científico al contexto deportivo.",
+    "gallery_title": "GALERÍA DE IMÁGENES",
+    "timeline_title": "LÍNEA DEL TIEMPO"
+  },
+  "education": {
+    "meta_title": "Formación | Francisco Vela PF",
+    "meta_description": "Formación académica y experiencia docente de Francisco Vela: Grado CAFD, Máster en Preparación Física, Máster en Prevención de Lesiones, UEFA PRO.",
+    "tagline": "Formación",
+    "title_1": "FORMACIÓN Y",
+    "title_2": "CURRICULUM",
+    "academic_title": "FORMACIÓN ACADÉMICA",
+    "teaching_title": "EXPERIENCIA DOCENTE",
+    "teaching_intro": "Fran Vela tiene una experiencia docente de más de 5 años. Es colaborador habitual de algunos Másteres y Cursos Experto sobre Preparación Física en Fútbol a nivel nacional e internacional. Además, Fran participa frecuentemente como ponente en cursos y congresos internacionales tanto de forma presencial como en modalidad online (español e inglés).",
+    "institutions_title": "CENTROS COLABORADORES",
+    "gallery_title": "GALERÍA",
+    "cv_title": "CURRÍCULUM VITAE",
+    "cv_es": "Descargar CV (Español)",
+    "cv_en": "Descargar CV (Inglés)"
+  },
+  "interviews": {
+    "meta_title": "Entrevistas | Francisco Vela PF",
+    "meta_description": "Entrevistas y apariciones mediáticas de Francisco Vela, preparador físico de fútbol profesional.",
+    "tagline": "Entrevistas",
+    "title_1": "EN LOS",
+    "title_2": "MEDIOS",
+    "videos_title": "VÍDEOS",
+    "audio_title": "RADIO",
+    "written_title": "PRENSA"
+  },
+  "coaching": {
+    "meta_title": "Asesoramiento | Francisco Vela PF",
+    "meta_description": "Programa de entrenamiento personalizado con Francisco Vela. Metodología basada en evidencia científica para futbolistas amateurs, semi-profesionales y profesionales.",
+    "tagline": "Asesoramiento",
+    "hero_title_1": "ENTRENA",
+    "hero_title_2": "CONMIGO",
+    "hero_text": "Mantener un alto nivel de condición física y reducir el riesgo de lesión son aspectos claves para conseguir un óptimo rendimiento deportivo durante la temporada. Si buscas optimizar tu condición física, Fran puede ofrecerte herramientas adaptadas a tus necesidades y contextos de trabajo, avaladas por sus 10 años de experiencia como preparador físico profesional de fútbol y por su continua formación en el ámbito del rendimiento deportivo.",
+    "method_title": "METODOLOGÍA",
+    "method_steps": [
+      {
+        "number": "01",
+        "title": "EVALUAR",
+        "text": "Diseñar sesiones sin haber realizado una valoración es uno de los errores más frecuentes. Realizaremos una valoración de la condición física para detectar áreas de mejora y posibles déficits."
+      },
+      {
+        "number": "02",
+        "title": "PLANIFICAR",
+        "text": "Prescribir de manera individualizada con precisión para maximizar adaptaciones y minimizar riesgos."
+      },
+      {
+        "number": "03",
+        "title": "MONITORIZAR",
+        "text": "Cuantificar y controlar la carga de entrenamiento para detectar la fatiga y optimizar el rendimiento."
+      },
+      {
+        "number": "04",
+        "title": "DECIDIR",
+        "text": "Feedback real, seguimiento diario con el jugador en tiempo real."
+      }
+    ],
+    "programs_title": "PROGRAMAS DE ENTRENAMIENTO",
+    "programs": [
+      {
+        "id": "verano",
+        "icon": "sun",
+        "title": "Periodo Transitorio (Verano)",
+        "text": "Afronta tu pretemporada con una buena base de condición física para entrenar con seguridad, recuperar mejor entre partidos exigentes y alcanzar un nivel de intensidad óptimo en partidos amistosos."
+      },
+      {
+        "id": "invierno",
+        "icon": "snow",
+        "title": "Periodo Transitorio (Invierno)",
+        "text": "Mantener el nivel de condición física en el parón de navidades es clave para no perder adaptaciones fisiológicas de cara a la segunda parte de la temporada."
+      },
+      {
+        "id": "temporada",
+        "icon": "calendar",
+        "title": "Durante la Temporada",
+        "text": "Entrenamiento complementario adaptado a tus recursos materiales, diseñado en base a tus características y registros individuales. Se complementa a las rutinas diarias de tu equipo profesional."
+      },
+      {
+        "id": "proyecto",
+        "icon": "target",
+        "title": "Nuevo Proyecto Deportivo",
+        "text": "Prepárate para cuando llegue el momento de unirte a un nuevo proyecto. Construye una condición física robusta, el programa se adapta a las necesidades, recursos y objetivos del deportista."
+      }
+    ],
+    "cta_title": "¿Quieres conocer más?",
+    "cta_text": "Si quieres conocer más sobre el programa de entrenamiento de manera específica y exhaustiva, contáctame.",
+    "cta_btn": "Contactar"
+  },
+  "contact": {
+    "meta_title": "Contacto | Francisco Vela PF",
+    "meta_description": "Contacta con Francisco Vela, preparador físico de fútbol profesional.",
+    "tagline": "Contacto",
+    "title_1": "HABLEMOS",
+    "title_2": "",
+    "subtitle": "Si quieres mejorar el rendimiento de tu equipo o necesitas más información, estoy aquí para ayudarte.",
+    "form_name": "Nombre",
+    "form_email": "Email",
+    "form_subject": "Asunto",
+    "form_message": "Mensaje",
+    "form_submit": "Enviar mensaje",
+    "form_success": "¡Mensaje enviado! Me pondré en contacto contigo pronto.",
+    "form_error": "Hubo un error. Por favor, inténtalo de nuevo.",
+    "info_email": "franciscovela.pf@gmail.com",
+    "info_instagram": "@franciscovelapf",
+    "info_twitter": "@willyvelapf"
+  },
+  "footer": {
+    "tagline": "Preparador Físico de Fútbol Profesional",
+    "nav_title": "Navegación",
+    "contact_title": "Contacto",
+    "rights": "Todos los derechos reservados."
+  },
+  "teams": [
+    {
+      "id": "chiclana",
+      "years": "2026 - Actualidad",
+      "name": "Chiclana CF",
+      "category": "3ª RFEF - Grupo 10",
+      "coach": "Jose Manuel Perez Herrera",
+      "role": "Preparador físico",
+      "shield": "/images/escudos/chiclana-cf.png"
+    },
+    {
+      "id": "llerenense",
+      "years": "2024 - 2026",
+      "name": "AD Llerenense",
+      "category": "3ª RFEF - Grupo 14",
+      "coach": "Juan Garcia",
+      "role": "Preparador físico y asistente técnico",
+      "shield": "/images/escudos/llerenense.png"
+    },
+    {
+      "id": "cadiz-balon",
+      "years": "2021 - 2024",
+      "name": "Cádiz CF Balón",
+      "category": "1ª RFAF (Sub 23)",
+      "coach": "Jesuli Velazquez",
+      "role": "Preparador físico",
+      "shield": "/images/escudos/cadiz-cf.png"
+    },
+    {
+      "id": "cadiz-sub19",
+      "years": "2019 - 2021",
+      "name": "Cádiz CF",
+      "category": "Liga Nacional Juvenil (Sub 19)",
+      "coach": "Juanma Hoyos",
+      "role": "Preparador físico",
+      "shield": "/images/escudos/cadiz-cf.png"
+    },
+    {
+      "id": "san-fernando",
+      "years": "2018 - 2019",
+      "name": "San Fernando CD",
+      "category": "Liga Nacional Juvenil (Sub 19)",
+      "coach": "Miguel Ángel Sanchez",
+      "role": "Preparador físico y Readaptador de lesiones",
+      "shield": "/images/escudos/san-fernando.png"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "juan-garcia",
+      "name": "Juan Garcia",
+      "role": "Entrenador",
+      "team": "AD Llerenense",
+      "text": "Francisco Javier Vela Terrero, es un preparador físico de mi absoluta confianza y una excelente persona. Durante tres temporadas tuvimos la oportunidad de crecer profesionalmente juntos, compartiendo experiencias, aprendizaje y una misma visión del trabajo.",
+      "highlight": "Posee un amplio dominio de las cargas físicas, previniendo lesiones y elevando el rendimiento del equipo.",
+      "photo": "/images/testimonios/juan-garcia.jpg"
+    },
+    {
+      "id": "jesuli-velazquez",
+      "name": "Jesuli Velazquez",
+      "role": "Entrenador",
+      "team": "Cádiz CF Balón",
+      "text": "Francisco Vela es un preparador físico que destaca por su enorme capacidad de trabajo, su compromiso y su dedicación diaria. Es un auténtico currante, siempre dispuesto a seguir aprendiendo y a dar lo mejor de sí mismo.",
+      "highlight": "Su profesionalidad, seriedad y calidad humana hacen que sea una persona en la que se puede confiar plenamente.",
+      "photo": "/images/testimonios/jesuli-velazquez.jpg"
+    },
+    {
+      "id": "perez-herrera",
+      "name": "Jose Manuel Perez Herrera",
+      "role": "Entrenador",
+      "team": "Chiclana CF",
+      "text": "Un profesional comprometido, riguroso en su metodología y con una capacidad de adaptación excelente.",
+      "highlight": "Su aportación al cuerpo técnico es fundamental para el rendimiento del equipo.",
+      "photo": "/images/testimonios/perez-herrera.jpg"
+    },
+    {
+      "id": "pablo-grande",
+      "name": "Pablo Grande",
+      "role": "Entrenador",
+      "team": "Academia Internacional Cádiz CF",
+      "text": "Tuve la oportunidad de trabajar con Fran en la Academia Internacional del Cádiz CF.",
+      "highlight": "Su nivel de preparación y su predisposición al trabajo en equipo son excepcionales.",
+      "photo": "/images/testimonios/pablo-grande-final.png",
+      "photoPosition": "center center"
+    },
+    {
+      "id": "marcos-chena",
+      "name": "Marcos Chena",
+      "role": "Preparador Físico",
+      "team": "Colaborador académico",
+      "text": "Fran es un profesional con una sólida base científica y una aplicación práctica muy depurada.",
+      "highlight": "Su dominio de la cuantificación de la carga y la tecnología GPS le sitúa entre los mejores preparadores físicos de su generación.",
+      "photo": "/images/testimonios/marcos-chena.jpg"
+    },
+    {
+      "id": "sergio-dorado",
+      "name": "Sergio Dorado",
+      "role": "Preparador Físico",
+      "team": "",
+      "text": "Compañero de profesión con quien he tenido el placer de compartir experiencias.",
+      "highlight": "Su conocimiento, rigor y pasión por la preparación física son una referencia en el sector.",
+      "photo": "/images/testimonios/sergio-dorado.jpg"
+    },
+    {
+      "id": "dani-romera",
+      "name": "Dani Romera",
+      "role": "Jugador",
+      "team": "",
+      "text": "Trabajar con Fran ha sido clave en mi desarrollo como futbolista.",
+      "highlight": "Su seguimiento individualizado y la forma en que adapta el entrenamiento a mis necesidades marca la diferencia.",
+      "photo": "/images/testimonios/dani-romera-final.png",
+      "photoPosition": "center center"
+    }
+  ],
+  "academic": [
+    {
+      "year": "2025",
+      "title": "Técnico Deportivo en Fútbol (UEFA PRO)",
+      "institution": "Federación Española de Fútbol",
+      "type": "Grado Superior",
+      "extra": "Curso Experto en Control y Cuantificación de la Carga de Entrenamiento en Fútbol — Marcos Chena y Antonio Sánchez"
+    },
+    {
+      "year": "2022",
+      "title": "Máster en Prevención y Readaptación de Lesiones en Fútbol",
+      "institution": [
+        "Universidad de Castilla La Mancha",
+        "Asociación de Preparadores Físicos de Fútbol",
+        "Real Federación de Madrid"
+      ],
+      "type": "Máster"
+    },
+    {
+      "year": "2021",
+      "title": "Máster en Preparación Física en Fútbol",
+      "institution": [
+        "Universidad de Castilla La Mancha",
+        "Asociación de Preparadores Físicos de Fútbol",
+        "Real Federación de Madrid"
+      ],
+      "type": "Máster"
+    },
+    {
+      "year": "2020",
+      "title": "Grado en Ciencias de la Actividad Física y el Deporte",
+      "institution": "Universidad de Cádiz",
+      "type": "Grado"
+    }
+  ],
+  "teaching": [
+    {
+      "year": "2024",
+      "event": "IV Seminario Internacional de Fútbol Contemporáneo",
+      "institution": "Universidad San Buenaventura Cali (Colombia)",
+      "topic": "El rol del preparador físico de fútbol dentro de un staff profesional"
+    },
+    {
+      "year": "2024",
+      "event": "Cursos Técnico Deportivo en Fútbol (Nivel 1 y 2)",
+      "institution": "Federación Extremeña de Fútbol",
+      "topic": "Preparación Física y Seguridad Deportiva"
+    },
+    {
+      "year": "2022",
+      "event": "Ponencia Internacional",
+      "institution": "Asociación de Preparadores Físicos de Fútbol Colombiano (APREFUCO)",
+      "topic": "La planificación del microciclo competitivo en el fútbol profesional, una propuesta basada en la ciencia y experiencia profesional"
+    },
+    {
+      "year": "2021",
+      "event": "Máster Experto en Metodología, Planificación y Periodización Táctica en Fútbol",
+      "institution": "Florida Global University (USA)",
+      "topic": "Profesor del programa"
+    }
+  ],
+  "interviews_data": {
+    "videos": [
+      {
+        "id": "cadiz-tv",
+        "title": "Entrevista Cádiz CF TV",
+        "description": "Entrevista con Javier Ibáñez para el canal oficial del Cádiz CF.",
+        "youtube_id": "ROpQ-LxVi6Q",
+        "thumbnail": ""
+      },
+      {
+        "id": "post-ascenso",
+        "title": "Post Ascenso Cádiz CF",
+        "description": "Declaraciones tras el histórico ascenso del equipo reserva a División de Honor Senior.",
+        "youtube_id": "kCWuB055rXU",
+        "thumbnail": ""
+      }
+    ],
+    "audios": [
+      {
+        "id": "cope-1",
+        "title": "Entrevista COPE Llerena",
+        "subtitle": "Cadena COPE — Llerena, Badajoz",
+        "description": "Entrevista sobre la temporada en el AD Llerenense.",
+        "file": "/audio/entrevista-cope-1.mp4",
+        "duration": ""
+      },
+      {
+        "id": "cope-2",
+        "title": "Entrevista COPE Llerena (2)",
+        "subtitle": "Cadena COPE — Llerena, Badajoz",
+        "description": "Segunda entrevista en la Cadena COPE.",
+        "file": "/audio/entrevista-cope-2.mp4",
+        "duration": ""
+      }
+    ],
+    "written": [
+      {
+        "id": "futbol-verdadero",
+        "title": "\"En el fútbol base es fundamental el desarrollo integral del jugador\"",
+        "media": "El Fútbol Verdadero",
+        "interviewer": "Xavier",
+        "url": "https://www.elfutbolverdadero.com/entrevistas-francisco-vela-en-el-futbol-base-es-fundamental-el-desarrollo-integral-del-jugador/",
+        "description": "Entrevista en profundidad sobre la preparación física en el fútbol base y la importancia del desarrollo integral del jugador."
+      }
+    ]
+  }
+}

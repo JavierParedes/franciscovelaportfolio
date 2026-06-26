@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/home/HeroSection.astro';
+import BioSection from '../components/home/BioSection.astro';
+import TeamsScroll from '../components/home/TeamsScroll.astro';
+import TestimonialsCarousel from '../components/home/TestimonialsCarousel.astro';
+import CTABanner from '../components/home/CTABanner.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = 'es';
+const t = useTranslations(lang);
+---
+
+<BaseLayout lang={lang} currentPage="/">
+  <HeroSection lang={lang} />
+  <BioSection lang={lang} />
+  <TeamsScroll lang={lang} />
+  <TestimonialsCarousel lang={lang} />
+
+  <!-- Formación resumen -->
+  <section class="edu-summary section">
+    <div class="container">
+      <div class="edu-summary__header animate">
+        <span class="section-tagline">{t('nav.education')}</span>
+        <h2 class="section-title">
+          FORMACIÓN Y<br /><span>CURRICULUM</span>
+        </h2>
+      </div>
+      <div class="edu-summary__grid">
+        {(t('academic') as any[]).map((item: any, i: number) => (
+          <div class={`edu-summary__card animate animate--delay-${i + 1}`}>
+            <div class="edu-summary__year-wrap">
+              <span class="edu-summary__year">{item.year}</span>
+              <span class="edu-summary__type badge">{item.type}</span>
+            </div>
+            <h3 class="edu-summary__title">{item.title}</h3>
+            <p class="edu-summary__institution">
+              {Array.isArray(item.institution)
+                ? item.institution.map((line: string, idx: number) => <>{idx > 0 && <br />}{line}</>)
+                : item.institution}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div class="edu-summary__cta animate">
+        <a href="/cv-francisco-vela-es.pdf" target="_blank" rel="noopener" download class="btn btn--outline">
+          {t('education.cv_es')}
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner lang={lang} />
+</BaseLayout>
+
+<style>
+.edu-summary {
+  background: var(--black-soft);
+}
+.edu-summary__header {
+  margin-bottom: var(--space-10);
+}
+.edu-summary__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+.edu-summary__card {
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+.edu-summary__card:hover {
+  border-color: var(--lime);
+  transform: translateY(-4px);
+}
+.edu-summary__year-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.edu-summary__year {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--lime);
+  line-height: 1;
+}
+.edu-summary__title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.4;
+  margin-bottom: var(--space-2);
+}
+.edu-summary__institution {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+}
+.edu-summary__cta {
+  text-align: center;
+}
+</style>
