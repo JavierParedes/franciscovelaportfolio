@@ -8,8 +8,8 @@ const programs = t('coaching.programs') as any[];
 const steps = t('coaching.method_steps') as any[];
 
 // Selección de fotos de Cádiz CF y Llerenense intercaladas
-const cadizNums    = [5, 8, 12, 17, 22, 27, 32, 38, 44, 50, 56, 62];
-const llerenNums   = [3, 7, 11, 15, 20, 25, 30, 35, 40, 45, 50, 55];
+const cadizNums    = [13, 16, 19, 17, 22, 27, 32, 38, 44, 50, 56, 62];
+const llerenNums   = [17, 21, 11, 15, 20, 25, 30, 35, 40, 45, 50, 55];
 
 const coachingPhotos = cadizNums.flatMap((n, i) => [
   { src: `/images/cadiz-cf/cadiz-${String(n).padStart(3,'0')}.jpg`,         alt: 'Francisco Vela - Cádiz CF' },
