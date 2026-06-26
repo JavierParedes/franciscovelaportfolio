@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://franciscovela.com/sitemap-index.xml
+Sitemap: https://franvela.com/sitemap-index.xml

@@ -312,34 +312,6 @@
       "highlight": "Su seguimiento individualizado y la forma en que adapta el entrenamiento a mis necesidades marca la diferencia.",
       "photo": "/images/testimonios/dani-romera-final.png",
       "photoPosition": "center center"
-    },
-    {
-      "id": "perez-herrera",
-      "name": "Jose Manuel Perez Herrera",
-      "role": "Entrenador",
-      "team": "Chiclana CF",
-      "text": "Un profesional comprometido, riguroso en su metodología y con una capacidad de adaptación excelente.",
-      "highlight": "Su aportación al cuerpo técnico es fundamental para el rendimiento del equipo.",
-      "photo": "/images/testimonios/perez-herrera.jpg"
-    },
-    {
-      "id": "pablo-grande",
-      "name": "Pablo Grande",
-      "role": "Entrenador",
-      "team": "Academia Internacional Cádiz CF",
-      "text": "Tuve la oportunidad de trabajar con Fran en la Academia Internacional del Cádiz CF.",
-      "highlight": "Su nivel de preparación y su predisposición al trabajo en equipo son excepcionales.",
-      "photo": "/images/testimonios/pablo-grande-final.png",
-      "photoPosition": "center center"
-    },
-    {
-      "id": "sergio-dorado",
-      "name": "Sergio Dorado",
-      "role": "Preparador Físico",
-      "team": "",
-      "text": "Compañero de profesión con quien he tenido el placer de compartir experiencias.",
-      "highlight": "Su conocimiento, rigor y pasión por la preparación física son una referencia en el sector.",
-      "photo": "/images/testimonios/sergio-dorado.jpg"
     }
   ],
   "academic": [
