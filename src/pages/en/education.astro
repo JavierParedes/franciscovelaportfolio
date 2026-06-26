@@ -6,65 +6,468 @@ const lang = 'en';
 const t = useTranslations(lang);
 const academic = t('academic') as any[];
 const teaching = t('teaching') as any[];
+
 const excludePhotos = new Set([1, 2, 4, 19, 20, 22, 26, 30]);
 const formacionPhotos = Array.from({ length: 30 }, (_, i) => i + 1)
   .filter(n => !excludePhotos.has(n))
-  .map(i => ({ src: `/images/formacion/formacion-${String(i).padStart(3, '0')}.jpg`, alt: `Francisco Vela Education - image ${i}` }));
+  .map(i => ({
+    src: `/images/formacion/formacion-${String(i).padStart(3, '0')}.jpg`,
+    alt: `Francisco Vela Education - image ${i}`
+  }));
+
+const institutions = [
+  { name: 'Florida Global University', logo: '/images/logos/florida-global.png', url: '#' },
+  { name: 'APREFUCO', logo: '/images/logos/aprefuco.png', url: '#' },
+  { name: 'Extremadura Football Federation', logo: '/images/logos/fef.png', url: '#' },
+  { name: 'Universidad San Buenaventura Cali', logo: '/images/logos/usbcali.png', url: '#' },
+];
 ---
 
-<BaseLayout lang={lang} currentPage="/en/education" title={t('education.meta_title') as string} description={t('education.meta_description') as string}>
+<BaseLayout
+  lang={lang}
+  currentPage="/en/education"
+  title={t('education.meta_title') as string}
+  description={t('education.meta_description') as string}
+>
+  <!-- Hero -->
   <section class="page-hero">
-    <div class="page-hero__bg"><img src="/images/formacion/formacion-008.jpg" alt="" aria-hidden="true" width="1400" height="500" loading="eager" class="page-hero__img" /><div class="page-hero__overlay"></div></div>
-    <div class="container page-hero__content animate"><span class="section-tagline">{t('education.tagline')}</span><h1 class="page-hero__title">{t('education.title_1')}<br /><span>{t('education.title_2')}</span></h1></div>
+    <div class="page-hero__bg">
+      <img src="/images/formacion/formacion-008.jpg" alt="" aria-hidden="true" width="1400" height="500" loading="eager" class="page-hero__img" />
+      <div class="page-hero__overlay"></div>
+    </div>
+    <div class="container page-hero__content animate">
+      <span class="section-tagline">{t('education.tagline')}</span>
+      <h1 class="page-hero__title">
+        {t('education.title_1')}<br /><span>{t('education.title_2')}</span>
+      </h1>
+    </div>
   </section>
-  <section class="section"><div class="container">
-    <h2 class="section-title animate">{t('education.academic_title')}</h2><div class="divider animate animate--delay-1"></div>
-    <div class="grid">{academic.map((item: any, i: number) => (<div class={`card animate animate--delay-${i+1}`}><div class="card__year-row"><span class="card__year">{item.year}</span><span class="badge">{item.type}</span></div><h3 class="card__title">{item.title}</h3><p class="card__sub">{Array.isArray(item.institution) ? item.institution.map((line: string, idx: number) => <>{idx > 0 && <br />}{line}</>) : item.institution}</p>{item.extra && <p class="card__extra">{item.extra}</p>}</div>))}</div>
-    <div class="cv-block animate"><h3>CURRICULUM VITAE</h3><div class="cv-btns"><a href="/cv-francisco-vela-es.pdf" target="_blank" rel="noopener" class="btn btn--primary">{t('education.cv_es')}</a><a href="/cv-francisco-vela-en.pdf" target="_blank" rel="noopener" class="btn btn--outline">{t('education.cv_en')}</a></div></div>
-  </div></section>
-  <section class="section bg-soft"><div class="container">
-    <h2 class="section-title animate">{t('education.teaching_title')}</h2><div class="divider animate animate--delay-1"></div>
-    <p class="intro animate animate--delay-2">{t('education.teaching_intro')}</p>
-    <div class="teaching-list">{teaching.map((item: any, i: number) => (<article class={`teaching-item animate animate--delay-${Math.min(i+1,5)}`}><span class="teaching-year">{item.year}</span><div><h3 class="teaching-event">{item.event}</h3><p class="teaching-inst">{item.institution}</p><p class="teaching-topic">"{item.topic}"</p></div></article>))}</div>
-  </div></section>
-  <section class="section"><div class="container">
-    <h2 class="section-title animate">{t('education.gallery_title')}</h2><div class="divider animate animate--delay-1"></div>
-    <div class="photo-grid">{formacionPhotos.map((p, i) => (<div class="photo-item animate" style={`animation-delay:${(i%5)*0.05}s`}><img src={p.src} alt={p.alt} width="400" height="300" loading="lazy" onerror="this.closest('.photo-item').style.display='none'" /></div>))}</div>
-  </div></section>
+
+  <!-- Academic qualifications -->
+  <section class="section edu-academic">
+    <div class="container">
+      <h2 class="section-title animate">{t('education.academic_title')}</h2>
+      <div class="divider animate animate--delay-1"></div>
+      <div class="edu-academic__grid">
+        {academic.map((item: any, i: number) => (
+          <div class={`edu-academic__card animate animate--delay-${i + 1}`}>
+            <div class="edu-academic__year-wrap">
+              <span class="edu-academic__year">{item.year}</span>
+              <span class="badge">{item.type}</span>
+            </div>
+            <h3 class="edu-academic__title">{item.title}</h3>
+            <p class="edu-academic__inst">
+              {Array.isArray(item.institution)
+                ? item.institution.map((line: string, idx: number) => <>{idx > 0 && <br />}{line}</>)
+                : item.institution}
+            </p>
+            {item.extra && <p class="edu-academic__extra">{item.extra}</p>}
+            {item.logos && item.logos.length > 0 && (
+              <div class={`card-logos card-logos--${item.logos.length === 1 ? 'single' : 'multi'}`}>
+                {item.logos.map((logo: any) => (
+                  <div class="card-logo">
+                    <img src={logo.src} alt={logo.alt} loading="lazy" />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- CV downloads -->
+      <div class="edu-cv animate">
+        <h3 class="edu-cv__title">{t('education.cv_title')}</h3>
+        <div class="edu-cv__btns">
+          <a href="/cv-francisco-vela-es.pdf" target="_blank" rel="noopener" class="btn btn--primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            {t('education.cv_es')}
+          </a>
+          <a href="/cv-francisco-vela-en.pdf" target="_blank" rel="noopener" class="btn btn--outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            {t('education.cv_en')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaching experience -->
+  <section class="section edu-teaching">
+    <div class="container">
+      <h2 class="section-title animate">{t('education.teaching_title')}</h2>
+      <div class="divider animate animate--delay-1"></div>
+      <p class="edu-teaching__intro animate animate--delay-2">{t('education.teaching_intro')}</p>
+
+      <div class="edu-teaching__list">
+        {teaching.map((item: any, i: number) => (
+          <article class={`edu-teaching__item animate animate--delay-${Math.min(i + 1, 5)}`}>
+            <span class="edu-teaching__year">{item.year}</span>
+            <div class="edu-teaching__content">
+              <h3 class="edu-teaching__event">{item.event}</h3>
+              <p class="edu-teaching__inst">{item.institution}</p>
+              <p class="edu-teaching__topic">"{item.topic}"</p>
+            </div>
+            {item.logo && (
+              <div class="edu-teaching__logo">
+                <img src={item.logo.src} alt={item.logo.alt} loading="lazy" />
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner institutions -->
+  <section class="section edu-institutions">
+    <div class="container">
+      <h2 class="section-title animate">{t('education.institutions_title')}</h2>
+      <div class="divider animate animate--delay-1"></div>
+      <div class="edu-institutions__grid">
+        {institutions.map((inst, i) => (
+          <a
+            href={inst.url}
+            target="_blank"
+            rel="noopener"
+            class={`edu-institutions__card animate animate--delay-${i + 1}`}
+            aria-label={inst.name}
+          >
+            <div class="edu-institutions__logo-wrap">
+              <img
+                src={inst.logo}
+                alt={inst.name}
+                width="180"
+                height="80"
+                loading="lazy"
+                class="edu-institutions__logo"
+                onerror="this.closest('.edu-institutions__logo-wrap').style.display='none'"
+              />
+            </div>
+            <span class="edu-institutions__name">{inst.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section edu-gallery">
+    <div class="container">
+      <h2 class="section-title animate">{t('education.gallery_title')}</h2>
+      <div class="divider animate animate--delay-1"></div>
+      <div class="edu-gallery__grid">
+        {formacionPhotos.map((photo, i) => (
+          <div class="edu-gallery__item animate" style={`animation-delay: ${(i % 5) * 0.05}s`}>
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              width="400"
+              height="300"
+              loading="lazy"
+              class="edu-gallery__img"
+              onerror="this.closest('.edu-gallery__item').style.display='none'"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-.page-hero { position:relative; min-height:400px; display:flex; align-items:flex-end; overflow:hidden; }
-.page-hero__bg { position:absolute; inset:0; }
-.page-hero__img { width:100%; height:100%; object-fit:cover; object-position:center top; }
-.page-hero__overlay { position:absolute; inset:0; background:linear-gradient(0deg,rgba(10,10,10,1) 0%,rgba(10,10,10,.7) 100%); }
-.page-hero__content { position:relative; z-index:1; padding-bottom:var(--space-12); }
-.page-hero__title { font-family:var(--font-display); font-size:var(--text-5xl); color:var(--white); line-height:1; }
-.page-hero__title span { color:var(--lime); }
-.bg-soft { background:var(--black-soft); }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:var(--space-5); margin-bottom:var(--space-12); }
-.card { background:var(--black-card); border:1px solid var(--black-border); border-radius:var(--radius-lg); padding:var(--space-8); transition:border-color var(--transition-base),transform var(--transition-base); }
-.card:hover { border-color:var(--lime); transform:translateY(-4px); }
-.card__year-row { display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-4); }
-.card__year { font-family:var(--font-display); font-size:var(--text-3xl); color:var(--lime); line-height:1; }
-.card__title { font-size:var(--text-lg); font-weight:700; color:var(--white); line-height:1.4; margin-bottom:var(--space-2); }
-.card__sub { font-size:var(--text-sm); color:var(--gray-500); }
-.inst-line { display:block; line-height:1.7; }
-.card__extra { font-size:var(--text-sm); color:var(--gray-400); border-top:1px solid var(--black-border); padding-top:var(--space-3); margin-top:var(--space-3); font-style:italic; }
-.cv-block { background:var(--black-card); border:1px solid var(--black-border); border-radius:var(--radius-lg); padding:var(--space-8); text-align:center; }
-.cv-block h3 { font-family:var(--font-display); font-size:var(--text-2xl); color:var(--white); margin-bottom:var(--space-6); }
-.cv-btns { display:flex; gap:var(--space-4); justify-content:center; flex-wrap:wrap; }
-.intro { font-size:var(--text-base); color:var(--gray-400); line-height:1.8; max-width:780px; margin-bottom:var(--space-10); }
-.teaching-list { display:flex; flex-direction:column; gap:var(--space-5); }
-.teaching-item { display:flex; gap:var(--space-8); padding:var(--space-6); background:var(--black-card); border:1px solid var(--black-border); border-radius:var(--radius-lg); transition:border-color var(--transition-base); }
-.teaching-item:hover { border-color:var(--lime); }
-.teaching-year { font-family:var(--font-display); font-size:var(--text-3xl); color:var(--lime); flex-shrink:0; min-width:4rem; line-height:1; }
-.teaching-event { font-size:var(--text-base); font-weight:700; color:var(--white); margin-bottom:var(--space-1); }
-.teaching-inst { font-size:var(--text-sm); color:var(--gray-500); margin-bottom:var(--space-2); }
-.teaching-topic { font-size:var(--text-sm); color:var(--gray-400); font-style:italic; }
-.photo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:var(--space-3); }
-.photo-item { overflow:hidden; border-radius:var(--radius-md); aspect-ratio:4/3; background:var(--black-card); }
-.photo-item img { width:100%; height:100%; object-fit:cover; transition:transform var(--transition-slow); }
-.photo-item:hover img { transform:scale(1.05); }
-@media (max-width:480px) { .teaching-item { flex-direction:column; gap:var(--space-3); } }
+.page-hero {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero__bg { position: absolute; inset: 0; }
+.page-hero__img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+.page-hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(10,10,10,0.7) 100%);
+}
+.page-hero__content { position: relative; z-index: 1; padding-bottom: var(--space-12); }
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  color: var(--white);
+  line-height: 1;
+}
+.page-hero__title span { color: var(--lime); }
+
+/* Academic */
+.edu-academic__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+.edu-academic__card {
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  position: relative;
+  transition: border-color var(--transition-base), transform var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+.edu-academic__card:hover {
+  border-color: var(--lime);
+  transform: translateY(-4px);
+}
+.edu-academic__year-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.edu-academic__year {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--lime);
+  line-height: 1;
+}
+.edu-academic__title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.4;
+  margin-bottom: var(--space-2);
+}
+.edu-academic__inst {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  margin-bottom: var(--space-2);
+}
+.edu-academic__extra {
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  border-top: 1px solid var(--black-border);
+  padding-top: var(--space-3);
+  margin-top: var(--space-3);
+  font-style: italic;
+}
+
+/* Card logos */
+.card-logos {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  margin-bottom: 0;
+}
+.card-logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  min-height: 90px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--black-border);
+  transition: border-color var(--transition-base);
+}
+.edu-academic__card:hover .card-logo {
+  border-color: rgba(163, 230, 53, 0.35);
+}
+.card-logo img {
+  max-height: 68px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform var(--transition-base);
+}
+.edu-academic__card:hover .card-logo img {
+  transform: scale(1.05);
+}
+
+/* CV */
+.edu-cv {
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+}
+.edu-cv__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--white);
+  margin-bottom: var(--space-6);
+}
+.edu-cv__btns {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Teaching */
+.edu-teaching { background: var(--black-soft); }
+.edu-teaching__intro {
+  font-size: var(--text-base);
+  color: var(--gray-400);
+  line-height: 1.8;
+  max-width: 780px;
+  margin-bottom: var(--space-10);
+}
+.edu-teaching__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.edu-teaching__item {
+  display: flex;
+  gap: var(--space-8);
+  padding: var(--space-6);
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-base);
+  align-items: center;
+}
+.edu-teaching__item:hover { border-color: var(--lime); }
+.edu-teaching__year {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--lime);
+  flex-shrink: 0;
+  min-width: 4rem;
+  line-height: 1;
+}
+.edu-teaching__content {
+  flex: 1;
+  min-width: 0;
+}
+.edu-teaching__event {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--space-1);
+}
+.edu-teaching__inst {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  margin-bottom: var(--space-2);
+}
+.edu-teaching__topic {
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  font-style: italic;
+}
+.edu-teaching__logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  min-height: 90px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--black-border);
+  padding: 8px;
+  transition: border-color var(--transition-base);
+}
+.edu-teaching__item:hover .edu-teaching__logo {
+  border-color: rgba(163, 230, 53, 0.35);
+}
+.edu-teaching__logo img {
+  max-height: 68px;
+  max-width: 68px;
+  object-fit: contain;
+}
+
+/* Institutions */
+.edu-institutions { background: var(--black); }
+.edu-institutions__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  justify-content: center;
+  align-items: center;
+}
+.edu-institutions__card {
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 160px;
+  text-decoration: none;
+}
+.edu-institutions__card:hover {
+  border-color: var(--lime);
+  box-shadow: var(--shadow-lime);
+}
+.edu-institutions__logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 130px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+}
+.edu-institutions__logo {
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  transition: transform var(--transition-base);
+}
+.edu-institutions__card:hover .edu-institutions__logo {
+  transform: scale(1.05);
+}
+.edu-institutions__name {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--gray-400);
+  text-align: center;
+  line-height: 1.4;
+  transition: color var(--transition-base);
+}
+.edu-institutions__card:hover .edu-institutions__name {
+  color: var(--lime);
+}
+
+/* Gallery */
+.edu-gallery { background: var(--black-soft); }
+.edu-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-3);
+}
+.edu-gallery__item {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  aspect-ratio: 4/3;
+  background: var(--black-card);
+}
+.edu-gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+.edu-gallery__item:hover .edu-gallery__img { transform: scale(1.05); }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .edu-teaching__item { flex-direction: column; gap: var(--space-3); }
+  .edu-cv__btns { flex-direction: column; }
+}
 </style>

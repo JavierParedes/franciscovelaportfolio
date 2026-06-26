@@ -39,6 +39,15 @@ const t = useTranslations(lang);
                 ? item.institution.map((line: string, idx: number) => <>{idx > 0 && <br />}{line}</>)
                 : item.institution}
             </p>
+            {item.logos && item.logos.length > 0 && (
+              <div class={`card-logos card-logos--${item.logos.length === 1 ? 'single' : 'multi'}`}>
+                {item.logos.map((logo: any) => (
+                  <div class="card-logo">
+                    <img src={logo.src} alt={logo.alt} loading="lazy" />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -77,6 +86,8 @@ const t = useTranslations(lang);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
   transition: border-color var(--transition-base), transform var(--transition-base);
+  display: flex;
+  flex-direction: column;
 }
 .edu-summary__card:hover {
   border-color: var(--lime);
@@ -107,5 +118,38 @@ const t = useTranslations(lang);
 }
 .edu-summary__cta {
   text-align: center;
+}
+
+/* Card logos */
+.card-logos {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  margin-bottom: 0;
+}
+.card-logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  min-height: 90px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--black-border);
+  transition: border-color var(--transition-base);
+}
+.edu-summary__card:hover .card-logo {
+  border-color: rgba(163, 230, 53, 0.35);
+}
+.card-logo img {
+  max-height: 68px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform var(--transition-base);
+}
+.edu-summary__card:hover .card-logo img {
+  transform: scale(1.05);
 }
 </style>

@@ -277,13 +277,13 @@
   ],
   "testimonials": [
     {
-      "id": "juan-garcia",
-      "name": "Juan Garcia",
-      "role": "Entrenador",
-      "team": "AD Llerenense",
-      "text": "Francisco Javier Vela Terrero, es un preparador físico de mi absoluta confianza y una excelente persona. Durante tres temporadas tuvimos la oportunidad de crecer profesionalmente juntos, compartiendo experiencias, aprendizaje y una misma visión del trabajo.",
-      "highlight": "Posee un amplio dominio de las cargas físicas, previniendo lesiones y elevando el rendimiento del equipo.",
-      "photo": "/images/testimonios/juan-garcia.jpg"
+      "id": "marcos-chena",
+      "name": "Marcos Chena",
+      "role": "Preparador Físico",
+      "team": "Colaborador académico",
+      "text": "He tenido la oportunidad de conocer de cerca la evolución profesional de Fran y puedo destacar su compromiso constante con el aprendizaje, la mejora continua y el crecimiento profesional. Es un preparador físico joven, con una gran capacidad para adaptarse a diferentes contextos de trabajo, una sólida base en la monitorización y el análisis de la carga mediante tecnología GPS y una excelente predisposición para trabajar en equipo. Más allá de sus conocimientos, destaca por su cercanía, su capacidad para generar confianza en los jugadores y por contribuir a crear un entorno de trabajo positivo.",
+      "highlight": "Estoy convencido de que seguirá creciendo como profesional y aportando un gran valor a los proyectos en los que participe.",
+      "photo": "/images/testimonios/marcos-chena.jpg"
     },
     {
       "id": "jesuli-velazquez",
@@ -293,6 +293,25 @@
       "text": "Francisco Vela es un preparador físico que destaca por su enorme capacidad de trabajo, su compromiso y su dedicación diaria. Es un auténtico currante, siempre dispuesto a seguir aprendiendo y a dar lo mejor de sí mismo.",
       "highlight": "Su profesionalidad, seriedad y calidad humana hacen que sea una persona en la que se puede confiar plenamente.",
       "photo": "/images/testimonios/jesuli-velazquez.jpg"
+    },
+    {
+      "id": "juan-garcia",
+      "name": "Juan Garcia",
+      "role": "Entrenador",
+      "team": "AD Llerenense",
+      "text": "Con Fran siempre fue fácil trabajar, buen talante y una predisposición al diálogo y a la toma de decisiones siempre apoyadas en buenos argumentos gracias a su formación.",
+      "highlight": "Un profesional con un futuro tremendo.",
+      "photo": "/images/testimonios/juan-garcia.jpg"
+    },
+    {
+      "id": "dani-romera",
+      "name": "Dani Romera",
+      "role": "Jugador",
+      "team": "",
+      "text": "Trabajar con Fran ha sido clave en mi desarrollo como futbolista.",
+      "highlight": "Su seguimiento individualizado y la forma en que adapta el entrenamiento a mis necesidades marca la diferencia.",
+      "photo": "/images/testimonios/dani-romera-final.png",
+      "photoPosition": "center center"
     },
     {
       "id": "perez-herrera",
@@ -314,15 +333,6 @@
       "photoPosition": "center center"
     },
     {
-      "id": "marcos-chena",
-      "name": "Marcos Chena",
-      "role": "Preparador Físico",
-      "team": "Colaborador académico",
-      "text": "Fran es un profesional con una sólida base científica y una aplicación práctica muy depurada.",
-      "highlight": "Su dominio de la cuantificación de la carga y la tecnología GPS le sitúa entre los mejores preparadores físicos de su generación.",
-      "photo": "/images/testimonios/marcos-chena.jpg"
-    },
-    {
       "id": "sergio-dorado",
       "name": "Sergio Dorado",
       "role": "Preparador Físico",
@@ -330,16 +340,6 @@
       "text": "Compañero de profesión con quien he tenido el placer de compartir experiencias.",
       "highlight": "Su conocimiento, rigor y pasión por la preparación física son una referencia en el sector.",
       "photo": "/images/testimonios/sergio-dorado.jpg"
-    },
-    {
-      "id": "dani-romera",
-      "name": "Dani Romera",
-      "role": "Jugador",
-      "team": "",
-      "text": "Trabajar con Fran ha sido clave en mi desarrollo como futbolista.",
-      "highlight": "Su seguimiento individualizado y la forma en que adapta el entrenamiento a mis necesidades marca la diferencia.",
-      "photo": "/images/testimonios/dani-romera-final.png",
-      "photoPosition": "center center"
     }
   ],
   "academic": [
@@ -348,7 +348,10 @@
       "title": "Técnico Deportivo en Fútbol (UEFA PRO)",
       "institution": "Federación Española de Fútbol",
       "type": "Grado Superior",
-      "extra": "Curso Experto en Control y Cuantificación de la Carga de Entrenamiento en Fútbol — Marcos Chena y Antonio Sánchez"
+      "extra": "Curso Experto en Control y Cuantificación de la Carga de Entrenamiento en Fútbol — Marcos Chena y Antonio Sánchez",
+      "logos": [
+        { "src": "/images/logos/rfef.png", "alt": "Real Federación Española de Fútbol" }
+      ]
     },
     {
       "year": "2022",
@@ -358,7 +361,12 @@
         "Asociación de Preparadores Físicos de Fútbol",
         "Real Federación de Madrid"
       ],
-      "type": "Máster"
+      "type": "Máster",
+      "logos": [
+        { "src": "/images/logos/uclm.png", "alt": "Universidad de Castilla La Mancha" },
+        { "src": "/images/logos/apff.png", "alt": "Asociación de Preparadores Físicos de Fútbol" },
+        { "src": "/images/logos/rfm.png", "alt": "Real Federación de Madrid" }
+      ]
     },
     {
       "year": "2021",
@@ -368,13 +376,21 @@
         "Asociación de Preparadores Físicos de Fútbol",
         "Real Federación de Madrid"
       ],
-      "type": "Máster"
+      "type": "Máster",
+      "logos": [
+        { "src": "/images/logos/uclm.png", "alt": "Universidad de Castilla La Mancha" },
+        { "src": "/images/logos/apff.png", "alt": "Asociación de Preparadores Físicos de Fútbol" },
+        { "src": "/images/logos/rfm.png", "alt": "Real Federación de Madrid" }
+      ]
     },
     {
       "year": "2020",
       "title": "Grado en Ciencias de la Actividad Física y el Deporte",
       "institution": "Universidad de Cádiz",
-      "type": "Grado"
+      "type": "Grado",
+      "logos": [
+        { "src": "/images/logos/ucadiz.png", "alt": "Universidad de Cádiz" }
+      ]
     }
   ],
   "teaching": [
@@ -382,25 +398,29 @@
       "year": "2024",
       "event": "IV Seminario Internacional de Fútbol Contemporáneo",
       "institution": "Universidad San Buenaventura Cali (Colombia)",
-      "topic": "El rol del preparador físico de fútbol dentro de un staff profesional"
+      "topic": "El rol del preparador físico de fútbol dentro de un staff profesional",
+      "logo": { "src": "/images/logos/usbcali.png", "alt": "Universidad San Buenaventura Cali" }
     },
     {
       "year": "2024",
       "event": "Cursos Técnico Deportivo en Fútbol (Nivel 1 y 2)",
       "institution": "Federación Extremeña de Fútbol",
-      "topic": "Preparación Física y Seguridad Deportiva"
+      "topic": "Preparación Física y Seguridad Deportiva",
+      "logo": { "src": "/images/logos/fef.png", "alt": "Federación Extremeña de Fútbol" }
     },
     {
       "year": "2022",
       "event": "Ponencia Internacional",
       "institution": "Asociación de Preparadores Físicos de Fútbol Colombiano (APREFUCO)",
-      "topic": "La planificación del microciclo competitivo en el fútbol profesional, una propuesta basada en la ciencia y experiencia profesional"
+      "topic": "La planificación del microciclo competitivo en el fútbol profesional, una propuesta basada en la ciencia y experiencia profesional",
+      "logo": { "src": "/images/logos/aprefuco.png", "alt": "APREFUCO" }
     },
     {
       "year": "2021",
       "event": "Máster Experto en Metodología, Planificación y Periodización Táctica en Fútbol",
       "institution": "Florida Global University (USA)",
-      "topic": "Profesor del programa"
+      "topic": "Profesor del programa",
+      "logo": { "src": "/images/logos/florida-global.png", "alt": "Florida Global University" }
     }
   ],
   "interviews_data": {

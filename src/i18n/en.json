@@ -277,13 +277,13 @@
   ],
   "testimonials": [
     {
-      "id": "juan-garcia",
-      "name": "Juan Garcia",
-      "role": "Manager",
-      "team": "AD Llerenense",
-      "text": "Francisco Javier Vela Terrero is a fitness coach I trust completely and an excellent person. During three seasons we had the opportunity to grow professionally together, sharing experiences, learning and a shared vision of work.",
-      "highlight": "He has a thorough command of physical load planning and control, contributing significantly to injury prevention and player performance.",
-      "photo": "/images/testimonios/juan-garcia.jpg"
+      "id": "marcos-chena",
+      "name": "Marcos Chena",
+      "role": "Fitness Coach",
+      "team": "Academic collaborator",
+      "text": "I have had the opportunity to closely follow Fran's professional development and I can highlight his constant commitment to learning, continuous improvement and professional growth. He is a young fitness coach with a great ability to adapt to different work contexts, a solid foundation in monitoring and load analysis using GPS technology, and an excellent willingness to work as part of a team. Beyond his knowledge, he stands out for his approachability, his ability to build trust with players, and for contributing to a positive work environment.",
+      "highlight": "I am convinced he will continue to grow as a professional and bring great value to the projects he takes part in.",
+      "photo": "/images/testimonios/marcos-chena.jpg"
     },
     {
       "id": "jesuli-velazquez",
@@ -293,6 +293,25 @@
       "text": "Francisco Vela is a fitness coach who stands out for his enormous capacity for work, commitment and daily dedication. He is a true hard worker, always willing to keep learning and give his best.",
       "highlight": "His professionalism, seriousness and human quality make him a person who can be fully trusted.",
       "photo": "/images/testimonios/jesuli-velazquez.jpg"
+    },
+    {
+      "id": "juan-garcia",
+      "name": "Juan Garcia",
+      "role": "Manager",
+      "team": "AD Llerenense",
+      "text": "Working with Fran was always easy — great attitude, a willingness to engage in dialogue, and decision-making always backed by solid arguments thanks to his education.",
+      "highlight": "A professional with a tremendous future.",
+      "photo": "/images/testimonios/juan-garcia.jpg"
+    },
+    {
+      "id": "dani-romera",
+      "name": "Dani Romera",
+      "role": "Player",
+      "team": "",
+      "text": "Working with Fran has been key to my development as a footballer.",
+      "highlight": "His individual follow-up and the way he adapts training to my needs makes all the difference.",
+      "photo": "/images/testimonios/dani-romera-final.png",
+      "photoPosition": "center center"
     },
     {
       "id": "perez-herrera",
@@ -314,15 +333,6 @@
       "photoPosition": "center center"
     },
     {
-      "id": "marcos-chena",
-      "name": "Marcos Chena",
-      "role": "Fitness Coach",
-      "team": "Academic collaborator",
-      "text": "Fran is a professional with a solid scientific background and very refined practical application.",
-      "highlight": "His mastery of load quantification and GPS technology places him among the best fitness coaches of his generation.",
-      "photo": "/images/testimonios/marcos-chena.jpg"
-    },
-    {
       "id": "sergio-dorado",
       "name": "Sergio Dorado",
       "role": "Fitness Coach",
@@ -330,16 +340,6 @@
       "text": "A colleague with whom I have had the pleasure of sharing experiences.",
       "highlight": "His knowledge, rigour and passion for fitness coaching are a benchmark in the sector.",
       "photo": "/images/testimonios/sergio-dorado.jpg"
-    },
-    {
-      "id": "dani-romera",
-      "name": "Dani Romera",
-      "role": "Player",
-      "team": "",
-      "text": "Working with Fran has been key to my development as a footballer.",
-      "highlight": "His individual follow-up and the way he adapts training to my needs makes all the difference.",
-      "photo": "/images/testimonios/dani-romera-final.png",
-      "photoPosition": "center center"
     }
   ],
   "academic": [
@@ -348,7 +348,10 @@
       "title": "Sports Coach in Football (UEFA PRO)",
       "institution": "Spanish Football Federation",
       "type": "Higher Level",
-      "extra": "Expert Course in Training Load Control and Quantification in Football — Marcos Chena and Antonio Sánchez"
+      "extra": "Expert Course in Training Load Control and Quantification in Football — Marcos Chena and Antonio Sánchez",
+      "logos": [
+        { "src": "/images/logos/rfef.png", "alt": "Real Federación Española de Fútbol" }
+      ]
     },
     {
       "year": "2022",
@@ -358,7 +361,12 @@
         "Asociación de Preparadores Físicos de Fútbol",
         "Real Federación de Madrid"
       ],
-      "type": "Master's Degree"
+      "type": "Master's Degree",
+      "logos": [
+        { "src": "/images/logos/uclm.png", "alt": "Universidad de Castilla La Mancha" },
+        { "src": "/images/logos/apff.png", "alt": "Asociación de Preparadores Físicos de Fútbol" },
+        { "src": "/images/logos/rfm.png", "alt": "Real Federación de Madrid" }
+      ]
     },
     {
       "year": "2021",
@@ -368,13 +376,21 @@
         "Asociación de Preparadores Físicos de Fútbol",
         "Real Federación de Madrid"
       ],
-      "type": "Master's Degree"
+      "type": "Master's Degree",
+      "logos": [
+        { "src": "/images/logos/uclm.png", "alt": "Universidad de Castilla La Mancha" },
+        { "src": "/images/logos/apff.png", "alt": "Asociación de Preparadores Físicos de Fútbol" },
+        { "src": "/images/logos/rfm.png", "alt": "Real Federación de Madrid" }
+      ]
     },
     {
       "year": "2020",
       "title": "Degree in Physical Activity and Sports Science",
       "institution": "University of Cádiz",
-      "type": "Degree"
+      "type": "Degree",
+      "logos": [
+        { "src": "/images/logos/ucadiz.png", "alt": "University of Cádiz" }
+      ]
     }
   ],
   "teaching": [
@@ -382,25 +398,29 @@
       "year": "2024",
       "event": "IV International Contemporary Football Seminar",
       "institution": "Universidad San Buenaventura Cali (Colombia)",
-      "topic": "The role of the football fitness coach within a professional staff"
+      "topic": "The role of the football fitness coach within a professional staff",
+      "logo": { "src": "/images/logos/usbcali.png", "alt": "Universidad San Buenaventura Cali" }
     },
     {
       "year": "2024",
       "event": "Sports Coach in Football Courses (Level 1 and 2)",
       "institution": "Extremadura Football Federation",
-      "topic": "Physical Preparation and Sports Safety"
+      "topic": "Physical Preparation and Sports Safety",
+      "logo": { "src": "/images/logos/fef.png", "alt": "Extremadura Football Federation" }
     },
     {
       "year": "2022",
       "event": "International Conference",
       "institution": "Colombian Football Fitness Coaches Association (APREFUCO)",
-      "topic": "Planning the competitive microcycle in professional football — a proposal based on science and professional experience"
+      "topic": "Planning the competitive microcycle in professional football — a proposal based on science and professional experience",
+      "logo": { "src": "/images/logos/aprefuco.png", "alt": "APREFUCO" }
     },
     {
       "year": "2021",
       "event": "Expert Master's in Methodology, Planning and Tactical Periodisation in Football",
       "institution": "Florida Global University (USA)",
-      "topic": "Programme lecturer"
+      "topic": "Programme lecturer",
+      "logo": { "src": "/images/logos/florida-global.png", "alt": "Florida Global University" }
     }
   ],
   "interviews_data": {
