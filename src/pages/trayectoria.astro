@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { useTranslations, pageRoutes } from '../i18n/utils';
+import { useTranslations } from '../i18n/utils';
 
 const lang = 'es';
 const t = useTranslations(lang);
@@ -302,6 +302,7 @@ const galleryPhotos = [
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   transition: transform var(--transition-slow);
 }
 .gallery__item:hover .gallery__img { transform: scale(1.05); }
