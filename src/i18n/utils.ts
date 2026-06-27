@@ -32,6 +32,7 @@ export const pageRoutes: Record<string, Record<Lang, string>> = {
   home:        { es: '/',              en: '/en/' },
   trajectory:  { es: '/trayectoria',  en: '/en/trajectory' },
   education:   { es: '/formacion',    en: '/en/education' },
+  teaching:    { es: '/docencia',     en: '/en/teaching' },
   interviews:  { es: '/entrevistas',  en: '/en/interviews' },
   coaching:    { es: '/asesoramiento',en: '/en/coaching' },
   contact:     { es: '/contacto',     en: '/en/contact' },

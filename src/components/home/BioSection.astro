@@ -18,15 +18,8 @@ const t = useTranslations(lang);
       </h2>
       <div class="divider animate animate--delay-2"></div>
       <p class="bio__body animate animate--delay-2">{t('home.bio.text')}</p>
-      <div class="bio__timeline animate animate--delay-3">
-        {(t('home.bio.timeline') as any[]).map((item: any) => (
-          <div class="bio__timeline-item">
-            <span class="bio__timeline-year">{item.year}</span>
-            <p class="bio__timeline-desc">{item.desc}</p>
-          </div>
-        ))}
-      </div>
-      <a href={pageRoutes.trajectory[lang]} class="btn btn--ghost animate animate--delay-4">
+      <p class="bio__body animate animate--delay-2">{t('home.bio.text_2')}</p>
+      <a href={pageRoutes.trajectory[lang]} class="btn btn--ghost animate animate--delay-3">
         {t('home.bio.cta')}
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
           <line x1="5" y1="12" x2="19" y2="12"/>
@@ -48,8 +41,7 @@ const t = useTranslations(lang);
         />
         <!-- Badge decorativo -->
         <div class="bio__badge">
-          <span class="bio__badge-icon">FV</span>
-          <span class="bio__badge-text">UEFA PRO</span>
+          <span class="bio__badge-icon"><span class="bio__badge-f">F</span><span class="bio__badge-v">V</span></span>
         </div>
       </div>
     </div>
@@ -76,35 +68,6 @@ const t = useTranslations(lang);
   margin-bottom: var(--space-8);
 }
 
-/* Timeline inline */
-.bio__timeline {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  margin-bottom: var(--space-8);
-  padding-left: var(--space-4);
-  border-left: 2px solid var(--black-border);
-}
-
-.bio__timeline-item {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-4);
-}
-
-.bio__timeline-year {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  color: var(--lime);
-  flex-shrink: 0;
-  min-width: 3.5rem;
-  line-height: 1;
-}
-
-.bio__timeline-desc {
-  font-size: var(--text-sm);
-  color: var(--gray-500);
-}
 
 /* Foto */
 .bio__photo-wrap {
@@ -148,14 +111,36 @@ const t = useTranslations(lang);
   flex-direction: column;
   align-items: center;
   box-shadow: var(--shadow-lime);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+.bio__badge:hover {
+  border-color: #FFE500;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
 }
 
 .bio__badge-icon {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  color: var(--lime);
+  font-weight: 900;
   line-height: 1;
   letter-spacing: -0.02em;
+}
+.bio__badge-f {
+  color: var(--white);
+  transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+}
+.bio__badge-v {
+  color: var(--lime);
+  transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+}
+.bio__badge:hover .bio__badge-f {
+  color: #FFE500;
+  text-shadow: 0 0 10px rgba(255, 229, 0, 0.5);
+}
+.bio__badge:hover .bio__badge-v {
+  color: #FFE500;
+  text-shadow: 0 0 10px rgba(255, 229, 0, 0.5);
 }
 .bio__badge-text {
   font-size: 0.6rem;

@@ -14,6 +14,7 @@
     "home": "Home",
     "trajectory": "Career",
     "education": "Education",
+    "teaching": "Teaching",
     "interviews": "Interviews",
     "coaching": "Coaching",
     "contact": "Contact"
@@ -21,8 +22,8 @@
   "home": {
     "hero": {
       "tagline": "Francisco Vela",
-      "headline_1": "I TRAIN PEOPLE,",
-      "headline_2": "NOT JUST PLAYERS",
+      "headline_1": "FITNESS COACH",
+      "headline_2": "PROFESSIONAL FOOTBALL",
       "subtitle": "Performance optimization, injury prevention and development of each athlete's maximum potential.",
       "cta": "Discover my work",
       "scroll": "Scroll"
@@ -39,9 +40,10 @@
     },
     "bio": {
       "tagline": "Biography",
-      "title_1": "PASSION FOR",
-      "title_2": "PERFORMANCE",
-      "text": "Francisco Javier Vela Terrero holds a Degree in Physical Activity and Sports Science, a Master's in Football Fitness Coaching, and a Master's in Injury Prevention and Readaptation, along with a UEFA PRO coaching licence. A professional football fitness coach for over a decade, he currently serves as fitness coach at Chiclana CF (Spain). His career is marked by solid national experience in professional football, having led the physical preparation of clubs including San Fernando CF, Cádiz CF and AD Llerenense.",
+      "title_1": "SCIENTIFIC EVIDENCE,",
+      "title_2": "PRACTICAL EXPERIENCE",
+      "text": "I hold a Degree in Physical Activity and Sports Sciences, a Master's in Football Fitness Coaching, a Master's in Injury Prevention and Readaptation in Football, and an Expert Course in Training Load Control and Quantification, along with a UEFA PRO coaching licence. I have dedicated over a decade to fitness coaching in professional football, and I currently serve in that role at Chiclana CF (Spain). My career is marked by solid national experience, having led the physical preparation at clubs such as San Fernando CF, Cádiz CF and AD Llerenense.",
+      "text_2": "In terms of teaching, he has served as a Lecturer at the Extremaduran Football Federation and as a professor in numerous Master's programmes, Postgraduate Courses and Congresses at various universities and training centres.",
       "cta": "Know my story",
       "timeline": [
         {"year": "2018", "desc": "Professional football debut — San Fernando CD"},
@@ -53,8 +55,8 @@
     },
     "teams": {
       "tagline": "Career",
-      "title_1": "TEAMS I HAVE",
-      "title_2": "WORKED WITH",
+      "title_1": "EXPERIENCE IN",
+      "title_2": "PROFESSIONAL CLUBS",
       "cta": "View all teams",
       "coach_label": "Manager"
     },
@@ -100,7 +102,7 @@
       "title_1": "Ready to take your",
       "title_2": "PERFORMANCE",
       "title_3": "to the next level?",
-      "subtitle": "Let's talk about how I can help you or your team reach maximum potential.",
+      "subtitle": "Let's talk about how I can advise you or your team to reach your maximum potential.",
       "cta": "Contact me"
     }
   },
@@ -112,9 +114,9 @@
     "title_2": "CAREER",
     "bio_tagline": "Biography",
     "bio_title": "ABOUT ME",
-    "bio_text_1": "Francisco Javier Vela Terrero (Cádiz, 18th June 1998). He holds a Degree in Physical Activity and Sports Science (2020). In 2021 he completed the Master's in Football Fitness Coaching and in 2022 the Master's in Injury Prevention and Readaptation in Football, both awarded by the University of Castilla La Mancha, the Association of Fitness Coaches and the Royal Madrid Football Federation. In 2025 he completed the Higher Level in Football Sports Coaching (UEFA PRO), as well as an Expert Course in Training Load Control and Quantification in Football, taught by Marcos Chena and Antonio Sánchez.",
-    "bio_text_2": "He began his professional career at San Fernando CD as fitness coach for the U19 team in the National League in 2018. After one season, he moved to Cádiz CF to lead the physical preparation of the U19 team, where he remained for two seasons. This work earned him promotion in July 2021 to the U23 reserve team in 1ª RFAF, where he spent 3 seasons working with coach Jesuli Velazquez, achieving 3 promotion playoffs and two consecutive promotions, the last to División de Honor Senior.",
-    "bio_text_3": "During 2022 and 2023 he also worked as a coach for LA LIGA's International Campus. In his final year at Cádiz CF he was assistant coach for the U19 International Academy under Pablo Sanchez. In June 2024 he joined coach Juan Garcia in Extremadura as fitness coach for AD Llerenense in Tercera RFEF, reaching the promotion playoff final for Segunda RFEF. In June 2026 he started a new chapter with coach Jose Manuel Perez Herrera at Chiclana CF in Tercera RFEF. In summary, Fran Vela has accumulated a decade of uninterrupted experience in professional football teams, distinguished by his ability to apply scientific knowledge in a sports context.",
+    "bio_text_1": "I was born in Cádiz on 18th June 1998. I hold a Degree in Physical Activity and Sports Science (2020). In 2021 I completed the Master's in Football Fitness Coaching and in 2022 the Master's in Injury Prevention and Readaptation in Football, both awarded by the University of Castilla La Mancha, the Association of Fitness Coaches and the Royal Madrid Football Federation. In 2025 I completed the Higher Level in Football Sports Coaching (UEFA PRO), as well as an Expert Course in Training Load Control and Quantification in Football, taught by Marcos Chena and Antonio Sánchez.",
+    "bio_text_2": "I began my professional career at San Fernando CD as fitness coach for the U19 team in the National League in 2018. After one season, I moved to Cádiz CF to lead the physical preparation of the U19 team, where I remained for two seasons. This work earned me promotion in July 2021 to the U23 reserve team in 1ª RFAF, where I spent 3 seasons working with coach Jesús Velázquez, achieving 3 promotion playoffs and two consecutive promotions, the last to División de Honor Senior.",
+    "bio_text_3": "During 2022 and 2023 I also worked as a coach for LA LIGA's International Campus. In my final year at Cádiz CF I served as assistant coach for the U19 International Academy under Pablo Sanchez. In June 2024 I joined coach Juan Garcia in Extremadura as fitness coach for AD Llerenense in Tercera RFEF, where we reached the promotion playoff final for Segunda RFEF. In June 2026 I began a new chapter with coach Jose Manuel Perez Herrera at Chiclana CF in Tercera RFEF. In summary, I have accumulated a decade of uninterrupted experience in professional football teams, distinguished by my ability to apply scientific knowledge in a sports context.",
     "gallery_title": "PHOTO GALLERY",
     "timeline_title": "Trajectory"
   },
@@ -122,16 +124,23 @@
     "meta_title": "Education | Francisco Vela PF",
     "meta_description": "Francisco Vela's academic background and teaching experience: Degree in Physical Activity, Masters in Fitness Coaching and Injury Prevention, UEFA PRO.",
     "tagline": "Education",
-    "title_1": "EDUCATION &",
+    "title_1": "ACADEMIC",
     "title_2": "CURRICULUM",
     "academic_title": "ACADEMIC QUALIFICATIONS",
-    "teaching_title": "TEACHING EXPERIENCE",
-    "teaching_intro": "Fran Vela has over 5 years of teaching experience. He is a regular collaborator in Masters and Expert Courses on Football Fitness Coaching at national and international level. Fran also frequently participates as a speaker at international courses and congresses, both in person and online (Spanish and English).",
+    "teaching_title": "Formations",
+    "teaching_intro": "I have over 5 years of teaching experience. I am a regular collaborator in Master's and Expert Courses on Football Fitness Coaching at national and international level. I also frequently participate as a speaker at international courses and congresses, both in person and online (Spanish and English).",
     "institutions_title": "PARTNER INSTITUTIONS",
     "gallery_title": "GALLERY",
     "cv_title": "CURRICULUM VITAE",
     "cv_es": "Download CV (Spanish)",
     "cv_en": "Download CV (English)"
+  },
+  "docencia": {
+    "meta_title": "Teaching | Francisco Vela PF",
+    "meta_description": "Francisco Vela's teaching experience as a lecturer in masters programmes and courses on football fitness coaching at national and international level.",
+    "tagline": "Teaching",
+    "title_1": "TEACHING",
+    "title_2": "EXPERIENCE"
   },
   "interviews": {
     "meta_title": "Interviews | Francisco Vela PF",
@@ -149,7 +158,7 @@
     "tagline": "Coaching",
     "hero_title_1": "TRAIN",
     "hero_title_2": "WITH ME",
-    "hero_text": "Maintaining a high level of physical fitness and reducing the risk of injury are key aspects of achieving optimal sports performance throughout the season. If you are looking to optimise your physical condition, Fran can offer you tools adapted to your needs and work contexts, backed by his 10 years of experience as a professional football fitness coach and his ongoing training in sports performance.",
+    "hero_text": "Maintaining a high level of physical fitness and reducing the risk of injury are key aspects of achieving optimal sports performance throughout the season. If you are looking to optimise your physical condition, I can offer you tools adapted to your needs and work contexts, backed by my 10 years of experience as a professional football fitness coach and my ongoing training in sports performance.",
     "method_title": "METHODOLOGY",
     "method_steps": [
       {
@@ -210,7 +219,7 @@
     "tagline": "Contact",
     "title_1": "LET'S",
     "title_2": "TALK",
-    "subtitle": "If you want to improve your team's performance or need more information, I am here to help you.",
+    "subtitle": "Let's talk about how I can help you or your team reach their full potential.",
     "form_name": "Name",
     "form_email": "Email",
     "form_subject": "Subject",
@@ -218,7 +227,7 @@
     "form_submit": "Send message",
     "form_success": "Message sent! I will get back to you soon.",
     "form_error": "There was an error. Please try again.",
-    "info_email": "franciscovela.pf@gmail.com",
+    "info_email": "franciscojavier.velaterrero@gmail.com",
     "info_instagram": "@franciscovelapf",
     "info_twitter": "@willyvelapf"
   },
@@ -234,7 +243,7 @@
       "years": "2026 - Present",
       "name": "Chiclana CF",
       "category": "3rd Division RFEF - Group 10",
-      "coach": "Jose Manuel Perez Herrera",
+      "coach": "José Manuel Pérez Herrera",
       "role": "Fitness Coach",
       "shield": "/images/escudos/chiclana-cf.png"
     },
@@ -243,7 +252,7 @@
       "years": "2024 - 2026",
       "name": "AD Llerenense",
       "category": "3rd Division RFEF - Group 14",
-      "coach": "Juan Garcia",
+      "coach": "Juan García / José María Cidoncha",
       "role": "Fitness Coach & Technical Assistant",
       "shield": "/images/escudos/llerenense.png"
     },
@@ -252,7 +261,7 @@
       "years": "2021 - 2024",
       "name": "Cádiz CF Balón",
       "category": "1ª RFAF (U23)",
-      "coach": "Jesuli Velazquez",
+      "coach": "Jesús Velázquez / Juan Román",
       "role": "Fitness Coach",
       "shield": "/images/escudos/cadiz-cf.png"
     },
@@ -270,7 +279,7 @@
       "years": "2018 - 2019",
       "name": "San Fernando CD",
       "category": "National Youth League (U19)",
-      "coach": "Miguel Ángel Sanchez",
+      "coach": "Miguel Ángel Sánchez",
       "role": "Fitness Coach & Injury Readaptation",
       "shield": "/images/escudos/san-fernando.png"
     }
@@ -279,26 +288,26 @@
     {
       "id": "marcos-chena",
       "name": "Marcos Chena",
-      "role": "Fitness Coach",
-      "team": "Academic collaborator",
+      "role": "Professional Football Fitness Coach",
+      "team": "",
       "text": "I have had the opportunity to closely follow Fran's professional development and I can highlight his constant commitment to learning, continuous improvement and professional growth. He is a young fitness coach with a great ability to adapt to different work contexts, a solid foundation in monitoring and load analysis using GPS technology, and an excellent willingness to work as part of a team. Beyond his knowledge, he stands out for his approachability, his ability to build trust with players, and for contributing to a positive work environment.",
       "highlight": "I am convinced he will continue to grow as a professional and bring great value to the projects he takes part in.",
       "photo": "/images/testimonios/marcos-chena.jpg"
     },
     {
       "id": "jesuli-velazquez",
-      "name": "Jesuli Velazquez",
-      "role": "Manager",
-      "team": "Cádiz CF Balón",
-      "text": "Francisco Vela is a fitness coach who stands out for his enormous capacity for work, commitment and daily dedication. He is a true hard worker, always willing to keep learning and give his best.",
-      "highlight": "His professionalism, seriousness and human quality make him a person who can be fully trusted.",
+      "name": "Jesús Velázquez",
+      "role": "Professional Football Manager",
+      "team": "",
+      "text": "Fran Vela is a fitness coach I trust completely and an excellent person. Over three seasons we had the opportunity to grow professionally together, sharing experiences, learning and a shared vision of work. He stands out for his great capacity for effort, commitment and daily dedication. He has a thorough command of physical load planning and monitoring, which contributes significantly to injury prevention and player performance. He also designs and adapts field sessions with great judgement and effectiveness. His ability to interpret and apply different training methodologies allows him to integrate quickly into any context. In our case, he adapted immediately to my style of play, always bringing solutions and value to the coaching staff.",
+      "highlight": "His professionalism and human quality make him a very important asset for any sporting project.",
       "photo": "/images/testimonios/jesuli-velazquez.jpg"
     },
     {
       "id": "juan-garcia",
-      "name": "Juan Garcia",
-      "role": "Manager",
-      "team": "AD Llerenense",
+      "name": "Juan García",
+      "role": "Professional Football Manager",
+      "team": "",
       "text": "Working with Fran was always easy — great attitude, a willingness to engage in dialogue, and decision-making always backed by solid arguments thanks to his education.",
       "highlight": "A professional with a tremendous future.",
       "photo": "/images/testimonios/juan-garcia.jpg"
@@ -306,10 +315,10 @@
     {
       "id": "dani-romera",
       "name": "Dani Romera",
-      "role": "Player",
+      "role": "Professional Footballer",
       "team": "",
-      "text": "Working with Fran has been key to my development as a footballer.",
-      "highlight": "His individual follow-up and the way he adapts training to my needs makes all the difference.",
+      "text": "Francisco Vela is a fitness coach who stands out for his enormous capacity for work, his commitment and his daily dedication. He is a true hard worker, always willing to keep learning and give his best. Furthermore, he possesses great knowledge in the field of fitness coaching and analysis using GPS technology.",
+      "highlight": "His professionalism, seriousness and human quality make him a highly recommended colleague and a person who can be fully trusted.",
       "photo": "/images/testimonios/dani-romera-final.png",
       "photoPosition": "center center"
     }
@@ -317,12 +326,25 @@
   "academic": [
     {
       "year": "2025",
+      "title": "Expert in Training Load Control and Quantification in Football",
+      "institution": "Fútbol Entre Profes",
+      "type": "Expert Course",
+      "logos": [
+        { "src": "/images/logos/futbol-entre-profes.jpg", "alt": "Fútbol Entre Profes" }
+      ]
+    },
+    {
+      "year": "2025",
       "title": "Sports Coach in Football (UEFA PRO)",
-      "institution": "Spanish Football Federation",
+      "institution": [
+        "Spanish Football Federation",
+        "National Football Coaching Training Centre"
+      ],
       "type": "Higher Level",
       "extra": "Expert Course in Training Load Control and Quantification in Football — Marcos Chena and Antonio Sánchez",
       "logos": [
-        { "src": "/images/logos/rfef.png", "alt": "Real Federación Española de Fútbol" }
+        { "src": "/images/logos/rfef.png", "alt": "Real Federación Española de Fútbol" },
+        { "src": "/images/logos/cenafe.png", "alt": "National Football Coaching Training Centre" }
       ]
     },
     {
