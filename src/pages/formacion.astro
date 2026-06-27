@@ -163,20 +163,74 @@ const institutions = [
     <div class="container">
       <h2 class="section-title animate">{t('education.gallery_title')}</h2>
       <div class="divider animate animate--delay-1"></div>
-      <div class="edu-gallery__grid">
-        {formacionPhotos.map((photo, i) => (
-          <div class="edu-gallery__item animate" style={`animation-delay: ${(i % 5) * 0.05}s`}>
-            <img
-              src={photo.src}
-              alt={photo.alt}
-              width="400"
-              height="300"
-              loading="lazy"
-              class="edu-gallery__img"
-              onerror="this.closest('.edu-gallery__item').style.display='none'"
-            />
-          </div>
-        ))}
+      <div
+        x-data="{ lightbox: false, src: '', alt: '', idx: 0, photos: [] }"
+        x-init={`photos = ${JSON.stringify(formacionPhotos)}`}
+        @keydown.escape.window="lightbox = false"
+      >
+        <div class="edu-gallery__grid">
+          {formacionPhotos.map((photo, i) => (
+            <button
+              class="edu-gallery__item animate"
+              style={`animation-delay: ${(i % 5) * 0.05}s`}
+              @click={`lightbox = true; src = '${photo.src}'; alt = '${photo.alt}'; idx = ${i}`}
+              aria-label={photo.alt}
+            >
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                width="400"
+                height="300"
+                loading="lazy"
+                class="edu-gallery__img"
+                onerror="this.closest('button').style.display='none'"
+              />
+              <div class="edu-gallery__overlay" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+                </svg>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        <div
+          class="lightbox"
+          x-show="lightbox"
+          x-transition:enter="lightbox-enter"
+          x-transition:enter-start="lightbox-enter-start"
+          x-transition:enter-end="lightbox-enter-end"
+          x-transition:leave="lightbox-leave"
+          x-transition:leave-start="lightbox-leave-start"
+          x-transition:leave-end="lightbox-leave-end"
+          @click.self="lightbox = false"
+          role="dialog"
+          aria-modal="true"
+          :aria-label="alt"
+        >
+          <button class="lightbox__close" @click="lightbox = false" aria-label="Cerrar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+          <button class="lightbox__nav lightbox__nav--prev"
+            @click="idx = (idx - 1 + photos.length) % photos.length; src = photos[idx].src; alt = photos[idx].alt"
+            aria-label="Anterior">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+          </button>
+          <img :src="src" :alt="alt" class="lightbox__img" width="1200" height="800" />
+          <button class="lightbox__nav lightbox__nav--next"
+            @click="idx = (idx + 1) % photos.length; src = photos[idx].src; alt = photos[idx].alt"
+            aria-label="Siguiente">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+          <p class="lightbox__caption" x-text="alt"></p>
+        </div>
       </div>
     </div>
   </section>
@@ -459,18 +513,101 @@ const institutions = [
   gap: var(--space-3);
 }
 .edu-gallery__item {
+  position: relative;
   overflow: hidden;
   border-radius: var(--radius-md);
   aspect-ratio: 4/3;
   background: var(--black-card);
+  cursor: pointer;
+  border: none;
+  padding: 0;
 }
 .edu-gallery__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   transition: transform var(--transition-slow);
 }
 .edu-gallery__item:hover .edu-gallery__img { transform: scale(1.05); }
+.edu-gallery__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(163, 230, 53, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  color: var(--white);
+}
+.edu-gallery__item:hover .edu-gallery__overlay { opacity: 1; }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+.lightbox-enter { transition: opacity 0.25s ease; }
+.lightbox-enter-start, .lightbox-leave-end { opacity: 0; }
+.lightbox-enter-end, .lightbox-leave-start { opacity: 1; }
+.lightbox-leave { transition: opacity 0.25s ease; }
+.lightbox__img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-img);
+}
+.lightbox__close {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--black-soft);
+  border: 1px solid var(--black-border);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+.lightbox__close:hover { background: var(--lime); color: var(--black); }
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--black-soft);
+  border: 1px solid var(--black-border);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+.lightbox__nav:hover { background: var(--lime); color: var(--black); }
+.lightbox__nav--prev { left: var(--space-4); }
+.lightbox__nav--next { right: var(--space-4); }
+.lightbox__caption {
+  position: absolute;
+  bottom: var(--space-5);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  text-align: center;
+  max-width: 80%;
+}
 
 /* Responsive */
 @media (max-width: 480px) {
